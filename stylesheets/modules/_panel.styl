@@ -1,0 +1,40 @@
+/* ==============================================================
+   Panel
+   ============================================================== */
+
+
+//---------------------------------------------------------------
+// Base
+//---------------------------------------------------------------
+
+
+// ## Panel `.panel`
+// A panel is a single unit of a dashboard containing self-contained data
+
+.panel {
+  background-color: #666;
+  padding: 2em;
+  text-align: center;
+}
+
+panel:before {
+  display: inline-block;
+  margin-right: -0.25em; /* Adjusts for spacing */
+  height: 100%;
+  content:'';
+  vertical-align: middle;
+}
+
+//
+// Sub-Modules
+//
+
+.panel__content-wrapper {
+  display: inline-block;
+  vertical-align: middle;
+  width: 100%;
+}
+
+.panel__label {
+  color: #fff;
+}

@@ -1,0 +1,70 @@
+/* ==============================================================
+   Typography
+   ============================================================== */
+
+/* Fonts
+   ============================================================== */
+
+/* Example use: @extend .basefont-bold */
+
+.basefont {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+}
+
+.basefont-bold {
+  @extend .basefont;
+  font-weight: bold;
+}
+
+.altfont {
+  font-family: Georgia, Times, "Times New Roman", serif;
+  font-style: normal;
+  font-weight: normal;
+}
+
+.altfont-bold {
+  @extend .basefont;
+  font-weight: bold;
+}
+
+/* Type Sizing
+   ============================================================== */
+
+/* All font sizes should be provided as rems, with a
+ * pixel fallback for older browsers. */
+
+/* Example use: typeset(14, 1.5) */
+
+typeset(font-size = 16, line-height = auto) {
+  font-size: font-size px;
+  font-size: (font-size / 10) rems;
+  line-height: line-height;
+}
+
+/* Base
+   ============================================================== */
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  @extend .basefont;
+  typeset(14, 1.5);
+  color: $text-color;
+}
+
+/* Links
+   ============================================================== */
+
+a { color: $link-color; }
+a:hover { text-decoration: underline; }
+
+
+/* Text Selection
+   ============================================================== */
+
+::-moz-selection { background: $selection-color; color: #fff; text-shadow: none; }
+::selection { background: $selection-color; color: #fff; text-shadow: none; }
