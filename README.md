@@ -48,6 +48,6 @@ The unique style for this panel. A class is automatically applied to every panel
 The unique template for the style. This can contain whatever you want, and will be updated whenever the collection changes.
 
 ```
-/client/panels/foo-panel/foo_panel.coffee
+/client/panels/foo-panel/foo-panel-template.coffee
 ```
 Template helpers for the panel. This file might not be necessary for all panels.
