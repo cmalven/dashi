@@ -38,6 +38,15 @@ panelsArray = [
     gridPosY: 0
     updateInterval: 400000
   }
+  {
+    className: 'TimePanel'
+    label: 'Get the Time'
+    gridSizeX: 1
+    gridSizeY: 1
+    gridPosX: 1
+    gridPosY: 1
+    updateInterval: 300000
+  }
 ]
 _.each panelsArray, (panel) ->
   Panels?.insert panel
