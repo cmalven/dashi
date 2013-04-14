@@ -25,29 +25,30 @@
   width: 13em;
   height: 13em;
   border-radius: 100em;
-  background-color: #fff;
+  background-color: rgba(#000, 0.5);
 }
 
 .time-panel__clock__hour,
 .time-panel__clock__minute {
-  text-indent: -9999em;
-  display: block;
-  width: 0.6em;
   position: absolute;
   left: 50%;
+  display: block;
   margin-left: -0.3em;
+  width: 0.6em;
+  text-indent: -9999em;
+  transition: 1s;
 }
 
 .time-panel__clock__hour {
-  height: 5.5em;
-  transform-origin: 50% 4em;
-  background-color: #444;
   top: 2.5em;
+  height: 5.5em;
+  background-color: #fff;
+  transform-origin: 50% 4em;
 }
 
 .time-panel__clock__minute {
   transform-origin: 50% 5.5em;
-  background-color: #666;
+  background-color: #fff;
   height: 7.0em;
   top: 1em
 }
