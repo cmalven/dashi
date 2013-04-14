@@ -1,4 +1,10 @@
+root = exports ? this
+
+Template.panel.dynamicTemplate = ->
+  panelName = @className.toLowerCase()
+  return Template[panelName](@)
+
 Template.panel.rendered = ->
-  ## Active the panel
-  console.log '@', @
-  newPanel = new WeatherPanel()
+  opts = this.data
+  opts.$el = $(this.find(".panel__content-wrapper"))
+  new WeatherPanel opts

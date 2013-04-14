@@ -1,0 +1,68 @@
+/* ==============================================================
+   Weather Panel
+   ============================================================== */
+
+@import "nib";
+
+//---------------------------------------------------------------
+// Base
+//---------------------------------------------------------------
+
+
+.weather-panel {
+  background-color: #85e6fe;
+  color: #fff;
+  animation: fade 30s infinite alternate;
+}
+
+//
+// Sub-Modules
+//
+
+weather-graphic(name) {
+  background-image: url(../../../images/name.svg);
+}
+
+.weather-panel__graphic {
+  width: 18em;
+  height: 10.5em;
+  display: inline-block;
+  margin-bottom: 2em;
+  background-size: cover;
+  background-position: center center;
+  opacity: 0.5;
+
+  &.is-clear-night {
+     weather-graphic(Moon-Waning-Crescent);
+  }
+
+  &.is-cloudy {
+     weather-graphic(Cloud);
+  }
+
+  &.is-partly-cloudy-night {
+     weather-graphic(Cloud-Moon);
+  }
+
+  &.is-rain {
+     weather-graphic(Cloud-Drizzle);
+  }
+}
+
+.weather-panel__city {
+
+}
+
+.weather-panel__summary {
+
+}
+
+//---------------------------------------------------------------
+// Animation
+//---------------------------------------------------------------
+
+@keyframes fade
+  0%
+    background-color: #85e6fe;
+  100%
+    background-color: #77ffc3;

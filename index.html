@@ -1,5 +1,5 @@
 <head>
-  <title>Meteor Dasbhoard</title>
+  <title>Meteor Dashboard</title>
 </head>
 
 <body>
@@ -19,16 +19,17 @@
 </template>
 
 <template name="dashboard_view">
-  {{#each panels}}
-    {{> panel}}
-  {{/each}}
+  <ul class="panels">
+    {{#each panels}}
+      {{> panel}}
+    {{/each}}
+  </ul>
 </template>
 
 <template name="panel">
-  <article class="panel">
+  <li class="panel">
     <div class="panel__content-wrapper">
-      <h1 class="panel__label">{{label}}</h1>
-      <p>You can have a whole bunch more content here and it'll all be nice and pretty.</p>
+      {{{dynamicTemplate}}}
     </div>
-  </article>
+  </li>
 </template>
