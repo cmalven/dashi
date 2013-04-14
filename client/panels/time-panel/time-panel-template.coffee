@@ -4,6 +4,9 @@ totalDegrees = 360
 totalMinutes = 60
 totalHours = 12
 
+Template.timepanel.time = ->
+  "#{@hour}:#{@minutes}"
+
 Template.timepanel.minute_rotation_css = ->
   minutes = @minutes
   degrees = (minutes / totalMinutes) * totalDegrees
