@@ -26,8 +26,9 @@ class root.Panel
     gridUnitY = wh / @options.gridHeight
 
     # Calculate Size
-    width = @options.gridSizeX * gridUnitX
-    height = @options.gridSizeY * gridUnitY
+    # Adds one pixel to account for rounding errors
+    width = @options.gridSizeX * gridUnitX + 1
+    height = @options.gridSizeY * gridUnitY + 1
 
     # Calculate Position
     posX = @options.gridPosX * gridUnitX
