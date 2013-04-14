@@ -15,6 +15,44 @@
   animation: time-fade 30s infinite alternate;
 }
 
+//
+// Sub-Modules
+//
+
+.time-panel__clock {
+  position: relative;
+  margin: 0 auto;
+  width: 13em;
+  height: 13em;
+  border-radius: 100em;
+  background-color: #fff;
+}
+
+.time-panel__clock__hour,
+.time-panel__clock__minute {
+  text-indent: -9999em;
+  display: block;
+  width: 0.6em;
+  position: absolute;
+  left: 50%;
+  margin-left: -0.3em;
+}
+
+.time-panel__clock__hour {
+  height: 5.5em;
+  transform-origin: 50% 4em;
+  background-color: #444;
+  top: 2.5em;
+}
+
+.time-panel__clock__minute {
+  transform-origin: 50% 5.5em;
+  background-color: #666;
+  height: 7.0em;
+  top: 1em
+}
+
+
 //---------------------------------------------------------------
 // Animation
 //---------------------------------------------------------------

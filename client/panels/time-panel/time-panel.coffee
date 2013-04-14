@@ -11,4 +11,18 @@ class root.TimePanel extends Panel
     super(@options)
 
   _update: =>
-    # Nothing here yet
+    now = moment()
+    hour = now.format("h")
+    minutes = now.format("mm")
+    seconds = now.format("ss")
+
+    Panels.update(
+      {_id: @options._id},
+      {$set: 
+        {
+          'hour': hour
+          'minutes': minutes
+          'seconds': seconds
+        }
+      }
+    )

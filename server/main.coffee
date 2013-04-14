@@ -45,7 +45,7 @@ panelsArray = [
     gridSizeY: 1
     gridPosX: 1
     gridPosY: 1
-    updateInterval: 300000
+    updateInterval: 10000
   }
 ]
 _.each panelsArray, (panel) ->
