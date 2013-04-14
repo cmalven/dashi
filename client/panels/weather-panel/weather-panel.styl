@@ -32,20 +32,52 @@ weather-graphic(name) {
   background-position: center center;
   opacity: 0.5;
 
-  &.is-clear-night {
-     weather-graphic(Moon-Waning-Crescent);
-  }
-
-  &.is-cloudy {
-     weather-graphic(Cloud);
-  }
-
   &.is-partly-cloudy-night {
      weather-graphic(Cloud-Moon);
   }
 
   &.is-rain {
-     weather-graphic(Cloud-Drizzle);
+     weather-graphic(Cloud-Rain);
+  }
+
+  &.is-clear-day {
+    weather-graphic(Cloud-Drizzle);
+  }
+
+  &.is-clear-night {
+    weather-graphic(Moon-Waning-Crescent);
+  }
+
+  &.is-rain {
+    weather-graphic(Cloud-Drizzle);
+  }
+
+  &.is-snow {
+    weather-graphic(Cloud-Snow);
+  }
+
+  &.is-sleet {
+    weather-graphic(Cloud-Hail);
+  }
+
+  &.is-wind {
+    weather-graphic(Cloud-Wind);
+  }
+
+  &.is-fog {
+    weather-graphic(Cloud-Fog);
+  }
+
+  &.is-cloudy {
+    weather-graphic(Cloud);
+  }
+
+  &.is-partly-cloudy-day {
+    weather-graphic(Cloud-Sun);
+  }
+
+  &.is-partly-cloudy-night {
+    weather-graphic(Cloud-Moon);
   }
 }
 
