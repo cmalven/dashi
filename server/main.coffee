@@ -5,7 +5,7 @@ panelsArray = [
   {
     className: 'WeatherPanel'
     label: 'Super Weather'
-    apiKey: '0c855ed921ab424daf5c473694e00858'
+    apiKey: '967742df1f62e1552f0d5e16301dab3b'
     city: 'Chicago'
     location: '41.850,-87.629'
     gridSizeX: 1
@@ -17,7 +17,7 @@ panelsArray = [
   {
     className: 'WeatherPanel'
     label: 'Extra Super Weather'
-    apiKey: '0c855ed921ab424daf5c473694e00858'
+    apiKey: '967742df1f62e1552f0d5e16301dab3b'
     city: 'San Francisco'
     location: '37.775,-122.418'
     gridSizeX: 1
@@ -29,7 +29,7 @@ panelsArray = [
   {
     className: 'WeatherPanel'
     label: 'Awesomest Super Weather'
-    apiKey: '0c855ed921ab424daf5c473694e00858'
+    apiKey: '967742df1f62e1552f0d5e16301dab3b'
     city: 'New York'
     location: '40.714,-74.006'
     gridSizeX: 1
