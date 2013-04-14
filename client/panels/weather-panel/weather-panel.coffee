@@ -23,8 +23,9 @@ class root.WeatherPanel extends Panel
           {_id: that.options._id},
           {$set: 
             {
-              'summary': data.currently.summary
-              'icon': data.currently.icon
+              'current_summary': data.currently.summary
+              'current_icon': data.currently.icon
+              'current_temperature': data.currently.temperature
             }
           }
         )

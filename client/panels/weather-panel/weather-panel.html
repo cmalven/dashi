@@ -1,5 +1,5 @@
 <template name="weatherpanel">
-  <figure class="weather-panel__graphic is-{{icon}}"></figure>
+  <figure class="weather-panel__graphic is-{{current_icon}}"></figure>
   <h1 class="weather-panel__city">{{city}}</h1>
-  <h2 class="weather-panel__summary">{{summary}}</h2>
+  <h2 class="weather-panel__summary">{{current_temperature}}&deg; and {{current_summary}}</h2>
 </template>
