@@ -18,7 +18,7 @@ class root.WeatherPanel extends Panel
       url: "#{@options.url}/#{@options.apiKey}/#{@options.location}"
       dataType: "jsonp"
       success: (data) ->
-        console.log 'data', data
+        console.log 'weather-data', data
         Panels.update(
           {_id: that.options._id},
           {$set: 
