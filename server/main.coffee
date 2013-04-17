@@ -1,4 +1,13 @@
-# Configure the Dashboard Modules
+# Configure the Dashboards and Panels
+
+Dashboards.remove({})
+dashboardsArray = [
+  {
+    _id: "007"
+  }
+]
+_.each dashboardsArray, (dashboard) ->
+  Dashboards?.insert dashboard
 
 Panels.remove({})
 panelsArray = [
@@ -13,6 +22,7 @@ panelsArray = [
     gridPosX: 2
     gridPosY: 0
     updateInterval: 300000
+    dashboard_id: "007"
   }
   {
     className: 'TimePanel'
@@ -22,6 +32,7 @@ panelsArray = [
     gridPosX: 2
     gridPosY: 1
     updateInterval: 10000
+    dashboard_id: "007"
   }
 ]
 _.each panelsArray, (panel) ->

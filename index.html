@@ -15,7 +15,9 @@
 </template>
 
 <template name="dashboard_list">
-  <a href="/dashboard/007">View the Only Dashboard</a>
+  {{#each dashboards}}
+    <a href="/dashboard/{{_id}}">View the Dashboard {{_id}}</a>
+  {{/each}}
 </template>
 
 <template name="dashboard_view">
