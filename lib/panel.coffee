@@ -8,16 +8,13 @@ class root.Panel
     @options.gridHeight = 2
 
     # Initialization
-    @_addCssClass()
+    @_setCssClass()
     @_update()
     $(window).on 'resize', @_updateSize
     $(window).trigger 'resize'
 
     # Start Update Interval
     Meteor.setInterval @_update, @options.updateInterval
-
-  _addCssClass: ->
-    @$el.closest('.panel').addClass "#{@options.panelCssClass}-panel"
 
   _updateSize: (evt) =>
     ww = $(window).width()
@@ -40,6 +37,15 @@ class root.Panel
       height: height
       left: posX
       top: posY
+  _setCssClass: ->
+    Panels.update(
+      {_id: @options._id},
+      {$set: 
+        {
+          'css_class': @options.panelCssClass
+        }
+      }
+    )
 
   _update: ->
     # This will implemented by panels that extend this class
