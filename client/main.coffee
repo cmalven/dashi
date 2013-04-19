@@ -1,5 +1,10 @@
 root = exports ? this
 
+# Session Configuration
+Session.set('grid_units_x', 3)
+Session.set('grid_units_y', 2)
+
+# Router
 DashboardRouter = Backbone.Router.extend
   routes:
     '': 'index'

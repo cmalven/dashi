@@ -13,11 +13,22 @@
   background-color: #85e6fe;
   color: #fff;
   animation: fade 30s infinite alternate;
+  height: 600px;
 }
 
 //
 // Sub-Modules
 //
+
+.weather-panel__city {
+  typeset(24, 1.5);
+  text-transform: uppercase;
+  letter-spacing: 4px;
+}
+
+.weather-panel__summary {
+
+}
 
 weather-graphic(name) {
   background-image: url(../../../images/name.svg);
@@ -79,14 +90,6 @@ weather-graphic(name) {
   &.is-partly-cloudy-night {
     weather-graphic(Cloud-Moon);
   }
-}
-
-.weather-panel__city {
-
-}
-
-.weather-panel__summary {
-
 }
 
 //---------------------------------------------------------------

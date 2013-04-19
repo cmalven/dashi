@@ -1,5 +1,7 @@
 <head>
   <title>Meteor Dashboard</title>
+  <script type="text/javascript" src="//use.typekit.net/apy6yfe.js"></script>
+  <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 </head>
 
 <body>
@@ -21,7 +23,7 @@
 </template>
 
 <template name="dashboard_view">
-  <ul class="panels">
+  <ul id="panels" class="panels">
     {{#each panels}}
       {{> panel}}
     {{/each}}
@@ -29,7 +31,7 @@
 </template>
 
 <template name="panel">
-  <li id="{{panel_id}}" class="panel {{css_class}}-panel">
+  <li id="{{panel_id}}" class="panel {{css_class}}-panel" style="width: {{panel_width_percent}}; height: {{panel_height_percent}}; top: {{pos_y_px}}; left: {{pos_x_px}};">
     <div class="panel__content-wrapper">
       {{{dynamicTemplate}}}
     </div>

@@ -16,13 +16,7 @@ class root.TimePanel extends Panel
     minutes = now.format("mm")
     seconds = now.format("ss")
 
-    Panels.update(
-      {_id: @options._id},
-      {$set: 
-        {
-          'hour': hour
-          'minutes': minutes
-          'seconds': seconds
-        }
-      }
-    )
+    update Panels, @options._id,
+      'hour': hour
+      'minutes': minutes
+      'seconds': seconds

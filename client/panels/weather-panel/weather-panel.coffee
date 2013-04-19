@@ -19,13 +19,7 @@ class root.WeatherPanel extends Panel
       dataType: "jsonp"
       success: (data) ->
         console.log 'weather-data', data
-        Panels.update(
-          {_id: that.options._id},
-          {$set: 
-            {
-              'current_summary': data.currently.summary
-              'current_icon': data.currently.icon
-              'current_temperature': data.currently.temperature
-            }
-          }
-        )
+        update Panels, that.options._id,
+          'current_summary': data.currently.summary
+          'current_icon': data.currently.icon
+          'current_temperature': data.currently.temperature
