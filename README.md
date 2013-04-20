@@ -51,3 +51,9 @@ The unique template for the style. This can contain whatever you want, and will 
 /client/panels/foo-panel/foo-panel-template.coffee
 ```
 Template helpers for the panel. This file might not be necessary for all panels.
+
+## Deployment
+
+The app is deployed at http://dashi.meteor.com
+
+`meteor deploy dashi.meteor.com	`
