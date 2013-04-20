@@ -8,7 +8,7 @@ class root.Panel
     @_update()
 
     # Start Update Interval
-    Meteor.setInterval @_update, @options.updateInterval
+    Meteor.setInterval @_update, @options.update_interval
 
     $(window).on 'resize', @_updateSize
     $(window).trigger 'resize'
@@ -20,8 +20,8 @@ class root.Panel
     gridUnitY = wh / Session.get('grid_units_y')
 
     # Calculate Size
-    width = @options.gridSizeX * gridUnitX
-    height = @options.gridSizeY * gridUnitY
+    width = @options.grid_size_x * gridUnitX
+    height = @options.grid_size_y * gridUnitY
 
     #Apply Size and Position
     update Panels, @options._id,

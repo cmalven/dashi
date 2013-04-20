@@ -15,7 +15,7 @@ class root.WeatherPanel extends Panel
   _update: =>
     that = @
     $.ajax
-      url: "#{@options.url}/#{@options.apiKey}/#{@options.location}"
+      url: "#{@options.url}/#{@options.api_key}/#{@options.location}"
       dataType: "jsonp"
       success: (data) ->
         console.log 'weather-data', data

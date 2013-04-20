@@ -1,40 +1,93 @@
 # Configure the Dashboards and Panels
 
-Dashboards.remove({})
-dashboardsArray = [
+# Reset the panel options
+PanelOptions.remove({})
+panelOptionsArray = [
   {
-    _id: "007"
+    panelName: 'WeatherPanel'
+    params: {
+      required: [
+        {
+          name: 'api_key'
+        }
+      ]
+      optional: [
+        {
+          name: 'city'
+          default: 'Chicago'
+        }
+        {
+          name: 'location'
+          default: '41.850,-87.629'
+        }
+        {
+          name: 'grid_size_x'
+          default: 1
+        }
+        {
+          name: 'grid_size_y'
+          default: 1
+        }
+        {
+          name: 'update_interval'
+          default: 300000
+        }
+        {
+          name: 'dashboard_id'
+          default: '001'
+        }
+      ]
+    }
   }
-]
-_.each dashboardsArray, (dashboard) ->
-  Dashboards?.insert dashboard
+  {
+    panelName: 'TimePanel'
+    params: {
+      required: [
 
-Panels.remove({})
-panelsArray = [
-  {
-    className: 'WeatherPanel'
-    apiKey: '967742df1f62e1552f0d5e16301dab3b'
-    city: 'Chicago'
-    location: '41.850,-87.629'
-    gridSizeX: 1
-    gridSizeY: 2
-    updateInterval: 300000
-    dashboard_id: "007"
-  }
-  {
-    className: 'TimePanel'
-    gridSizeX: 1
-    gridSizeY: 1
-    updateInterval: 20000
-    dashboard_id: "007"
-  }
-  {
-    className: 'TimePanel'
-    gridSizeX: 1
-    gridSizeY: 1
-    updateInterval: 20000
-    dashboard_id: "007"
+      ]
+      optional: [
+        {
+          name: 'grid_size_x'
+          default: 1
+        }
+        {
+          name: 'grid_size_y'
+          default: 1
+        }
+        {
+          name: 'update_interval'
+          default: 20000
+        }
+        {
+          name: 'dashboard_id'
+          default: '001'
+        }
+      ]
+    }
   }
 ]
-_.each panelsArray, (panel) ->
-  Panels?.insert panel
+_.each panelOptionsArray, (panelOption) ->
+  PanelOptions?.insert panelOption
+
+
+# Bootstrap the Dashboard if none exist
+
+if not Dashboards.find().count()
+  dashboardsArray = [
+    {
+      _id: '001'
+    }
+  ]
+  _.each dashboardsArray, (dashboard) ->
+    Dashboards?.insert dashboard
+
+  # Bootstrap the Panels
+  Meteor.call 'addPanel', 'TimePanel',
+    grid_size_x: 1
+    grid_size_y: 1
+    dashboard_id: '001'
+    
+  Meteor.call 'addPanel', 'WeatherPanel',
+    api_key: '967742df1f62e1552f0d5e16301dab3b'
+    grid_size_x: 1
+    grid_size_y: 2

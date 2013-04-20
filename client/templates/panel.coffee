@@ -4,7 +4,7 @@ Template.panel.panel_id = ->
   "#{@_id}-panel"
 
 Template.panel.dynamicTemplate = ->
-  panelName = @className.toLowerCase()
+  panelName = @panelName.toLowerCase()
   return Template[panelName](@)
 
 Template.panel.width_css = ->
@@ -23,5 +23,5 @@ Template.panel.rendered = ->
   if not @rendered
     opts = this.data
     opts.el = @find('.panel')
-    panelManager.add new root[opts.className](opts)
+    panelManager.add new root[opts.panelName](opts)
     @rendered = true
