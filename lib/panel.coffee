@@ -16,17 +16,8 @@ class root.Panel
   _updateSize: (evt) =>
     ww = $(window).width()
     wh = $(window).height()
-    gridUnitX = ww / Session.get('grid_units_x')
-    gridUnitY = wh / Session.get('grid_units_y')
-
-    # Calculate Size
-    width = @options.grid_size_x * gridUnitX
-    height = @options.grid_size_y * gridUnitY
-
-    #Apply Size and Position
-    update Panels, @options._id,
-      'width': width
-      'height': height
+    Session.set 'window_width', ww
+    Session.set 'window_height', wh
 
   _setCssClass: ->
     update Panels, @options._id,

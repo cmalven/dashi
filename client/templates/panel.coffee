@@ -8,16 +8,18 @@ Template.panel.dynamicTemplate = ->
   return Template[panelName](@)
 
 Template.panel.width_css = ->
-  return createCss @width, 'width'
+  gridUnitX = Session.get('window_width') / Session.get('grid_units_x')
+  return createCss (@grid_size_x * gridUnitX), 'width'
 
 Template.panel.height_css = ->
-  return createCss @height, 'height'
+  gridUnitY = Session.get('window_height') / Session.get('grid_units_y')
+  return createCss (@grid_size_y * gridUnitY), 'height'
 
 Template.panel.pos_y_css = ->
-  return createCss @pos_y, 'top'
+  return createCss (@pos_y * Session.get('window_height')), 'top'
 
 Template.panel.pos_x_css = ->
-  return createCss @pos_x, 'left'
+  return createCss (@pos_x * Session.get('window_width')), 'left'
 
 Template.panel.rendered = ->
   if not @rendered

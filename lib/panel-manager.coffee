@@ -29,14 +29,14 @@ class root.PanelManager
 
     @packery.on 'dragItemPositioned', (packeryInstance, draggedItem) ->
       update Panels, draggedItem.element.attributes['data-panel-id'].value,
-        'pos_x': draggedItem.position.x
-        'pos_y': draggedItem.position.y
+        'pos_x': if draggedItem.position.x is 0 then 0 else (draggedItem.position.x / $(window).width())
+        'pos_y': if draggedItem.position.y is 0 then 0 else (draggedItem.position.y / $(window).height())
 
     @packery.on 'layoutComplete', (packeryInstance, laidOutItems) ->
       _.each laidOutItems, (item) ->
         update Panels, item.element.attributes['data-panel-id'].value,
-          'pos_x': item.position.x
-          'pos_y': item.position.y
+        'pos_x': if item.position.x is 0 then 0 else (item.position.x / $(window).width())
+        'pos_y': if item.position.y is 0 then 0 else (item.position.y / $(window).height())
 
   _addPanelToPackery: (panel) ->
     pckry = @packery
