@@ -31,7 +31,7 @@
 </template>
 
 <template name="panel">
-  <li id="{{panel_id}}" class="panel {{css_class}}-panel" style="width: {{panel_width_percent}}; height: {{panel_height_percent}}; top: {{pos_y_px}}; left: {{pos_x_px}};">
+  <li id="{{panel_id}}" class="panel {{css_class}}-panel" style="{{width_css}} {{height_css}} {{pos_x_css}} {{pos_y_css}}" data-panel-id="{{_id}}">
     <div class="panel__content-wrapper">
       {{{dynamicTemplate}}}
     </div>

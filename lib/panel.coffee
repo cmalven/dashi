@@ -19,14 +19,14 @@ class root.Panel
     gridUnitX = ww / Session.get('grid_units_x')
     gridUnitY = wh / Session.get('grid_units_y')
 
-    # Calculate Position
-    posX = @options.gridPosX * gridUnitX
-    posY = @options.gridPosY * gridUnitY
+    # Calculate Size
+    width = @options.gridSizeX * gridUnitX
+    height = @options.gridSizeY * gridUnitY
 
     #Apply Size and Position
     update Panels, @options._id,
-      'pos_x_px': posX + 'px'
-      'pos_y_px': posY + 'px'
+      'width': width
+      'height': height
 
   _setCssClass: ->
     update Panels, @options._id,

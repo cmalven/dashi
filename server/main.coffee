@@ -18,8 +18,6 @@ panelsArray = [
     location: '41.850,-87.629'
     gridSizeX: 1
     gridSizeY: 2
-    gridPosX: 0
-    gridPosY: 0
     updateInterval: 300000
     dashboard_id: "007"
   }
@@ -27,27 +25,21 @@ panelsArray = [
     className: 'TimePanel'
     gridSizeX: 1
     gridSizeY: 1
-    gridPosX: 2
-    gridPosY: 1
-    updateInterval: 10000
+    updateInterval: 20000
     dashboard_id: "007"
   }
   {
     className: 'TimePanel'
     gridSizeX: 1
     gridSizeY: 1
-    gridPosX: 1
-    gridPosY: 0
-    updateInterval: 10000
+    updateInterval: 20000
     dashboard_id: "007"
   }
   {
     className: 'TimePanel'
     gridSizeX: 1
     gridSizeY: 1
-    gridPosX: 2
-    gridPosY: 1
-    updateInterval: 10000
+    updateInterval: 20000
     dashboard_id: "007"
   }
 ]

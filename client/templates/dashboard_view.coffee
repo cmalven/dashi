@@ -8,7 +8,7 @@ Template.dashboard_view.rendered = ->
   # Create the panel manager on the first render
   if not @rendered
     root.panelManager = new PanelManager()
-    @renderd = true
+    @rendered = true
 
 Template.dashboard_view.destroyed = ->
   root.panelManager = null
