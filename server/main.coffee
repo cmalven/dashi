@@ -35,13 +35,6 @@ panelsArray = [
     updateInterval: 20000
     dashboard_id: "007"
   }
-  {
-    className: 'TimePanel'
-    gridSizeX: 1
-    gridSizeY: 1
-    updateInterval: 20000
-    dashboard_id: "007"
-  }
 ]
 _.each panelsArray, (panel) ->
   Panels?.insert panel
