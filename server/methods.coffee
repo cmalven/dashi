@@ -21,3 +21,6 @@ Meteor.methods
     newPanel = _.extend defaults, opts, {panelName: panelOptionName}
 
     return Panels.insert newPanel
+
+  removePanel: (panelName) ->
+    return Panels.remove({panelName: panelName})
