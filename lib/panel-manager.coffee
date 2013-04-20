@@ -3,8 +3,13 @@ root = exports ? this
 class root.PanelManager
   constructor: (@options) ->
     @panels = []
-    $(window).on 'resize', @_updateInternalGridUnits
-    $(window).trigger 'resize'
+
+    Deps.autorun =>
+      Session.get('window_width')
+      Session.get('window_height')
+      @_updateInternalGridUnits()
+      @_updatePackeryGrid()
+
     @_initializePackery()
 
   add: (panel) ->
@@ -28,15 +33,16 @@ class root.PanelManager
     )
 
     @packery.on 'dragItemPositioned', (packeryInstance, draggedItem) ->
+
       update Panels, draggedItem.element.attributes['data-panel-id'].value,
-        'pos_x': if draggedItem.position.x is 0 then 0 else (draggedItem.position.x / $(window).width())
-        'pos_y': if draggedItem.position.y is 0 then 0 else (draggedItem.position.y / $(window).height())
+        'pos_x': if draggedItem.position.x is 0 then 0 else (draggedItem.position.x / Session.get('window_width'))
+        'pos_y': if draggedItem.position.y is 0 then 0 else (draggedItem.position.y / Session.get('window_height'))
 
     @packery.on 'layoutComplete', (packeryInstance, laidOutItems) ->
       _.each laidOutItems, (item) ->
         update Panels, item.element.attributes['data-panel-id'].value,
-        'pos_x': if item.position.x is 0 then 0 else (item.position.x / $(window).width())
-        'pos_y': if item.position.y is 0 then 0 else (item.position.y / $(window).height())
+        'pos_x': if item.position.x is 0 then 0 else (item.position.x / Session.get('window_width'))
+        'pos_y': if item.position.y is 0 then 0 else (item.position.y / Session.get('window_height'))
 
   _addPanelToPackery: (panel) ->
     pckry = @packery
@@ -46,11 +52,10 @@ class root.PanelManager
     pckry.bindDraggabillyEvents draggie
 
   _updatePackeryGrid: () ->
-    @packery.columnWidth = @gridUnitWidth
-    @packery.rowHeight = @gridUnitHeight
+    @packery?.columnWidth = @gridUnitWidth
+    @packery?.rowHeight = @gridUnitHeight
+    @packery?.layout()
 
   _updateInternalGridUnits: =>
-    ww = $(window).width()
-    wh = $(window).height()
-    @gridUnitWidth = ww / Session.get('grid_units_x')
-    @gridUnitHeight = wh / Session.get('grid_units_y')
+    @gridUnitWidth = Session.get('window_width') / Session.get('grid_units_x')
+    @gridUnitHeight = Session.get('window_height') / Session.get('grid_units_y')
