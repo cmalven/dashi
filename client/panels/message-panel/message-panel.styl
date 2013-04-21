@@ -25,12 +25,14 @@
 }
 
 .message-panel__latest-message {
-  margin: 2em;
+  position: relative;
+  margin: 2em auto;
   margin-bottom: 4em;
   padding: 2.4em 2em;
   border-radius: 8px;
   background-color: #fff;
   color: #BAA4DF;
+  max-width: 28em;
   
   p {
     font-size: 2.4rem;
@@ -40,6 +42,17 @@
 
   span {
     font-size: 1.5rem;
+  }
+
+  &:before {
+    position: absolute;
+    bottom: -30px;
+    left: 2em;
+    display: block;
+    width: 35px;
+    height: 35px;
+    background: url(../../../images/all_speech-bubble-tail.svg) no-repeat center center;
+    content: "";
   }
 }
 
@@ -63,11 +76,11 @@
   }
 
   ::-webkit-input-placeholder { /* WebKit browsers */
-    color: rgba(#000, 0.3);
+    color: rgba(#000, 0.2);
   }
 
   ::-moz-placeholder { /* Mozilla Firefox 19+ */
-    color: rgba(#000, 0.3);
+    color: rgba(#000, 0.2);
   }
 
   input:focus {
@@ -88,7 +101,7 @@
   line-height: 2.6em;
   margin-left: 0.5em;
   cursor: pointer;
-  background-color: rgba(#000, 0.5);
+  background: rgba(#000, 0.5) url(../../../images/all_message-submit.svg) no-repeat center 56%;
 
   &:hover {
     background-color: rgba(#000, 0.7);

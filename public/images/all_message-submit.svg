@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 16.2.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="15px" height="15px" viewBox="0 0 15 15" enable-background="new 0 0 15 15" xml:space="preserve">
+<symbol  id="Contact_Support_Icon" viewBox="0 -14.799 15 14.799">
+	<g opacity="0.8">
+		<g>
+			<path fill="#FFFFFF" d="M14,0H1C0.45,0,0-0.45,0-1v-9c0-0.55,0.45-1,1-1h3v-3.799L7.8-11H14c0.55,0,1,0.45,1,1v9
+				C15-0.45,14.55,0,14,0z"/>
+		</g>
+	</g>
+</symbol>
+<use xlink:href="#Contact_Support_Icon"  width="15" height="14.799" id="XMLID_9_" y="-14.799" transform="matrix(1 0 0 -1 0 0)" overflow="visible"/>
+</svg>

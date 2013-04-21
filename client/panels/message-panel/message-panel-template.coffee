@@ -5,6 +5,7 @@ Template.messagepanel.latest_message = ->
   latestMessage = messages[0]
   return if not latestMessage?
   latestMessage.time_ago = moment(latestMessage.time).fromNow()
+  latestMessage.sender or= 'Anonymous'
   return latestMessage
 
 Template.messagepanel.events
