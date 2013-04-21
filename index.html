@@ -31,11 +31,13 @@
 </template>
 
 <template name="panel">
-  <li id="{{panel_id}}" class="panel {{css_class}}-panel" style="{{width_css}} {{height_css}} {{pos_x_css}} {{pos_y_css}}" data-panel-id="{{_id}}">
+  <li id="{{panel_id}}" class="panel {{css_class}}-panel {{is_being_edited_class}}" style="{{width_css}} {{height_css}} {{pos_x_css}} {{pos_y_css}}" data-panel-id="{{_id}}">
     <div class="panel__content-wrapper">
       {{{dynamicTemplate}}}
     </div>
     {{> remove_panel_button}}
+    {{> edit_panel_button}}
+    {{> edit_panel}}
   </li>
 </template>
 
@@ -45,4 +47,34 @@
       Permanently remove this panel?
     </p>
   </div>
+</template>
+
+<template name="edit_panel_button">
+  <div class="panel__edit-button">Edit Panel</div>
+</template>
+
+<template name="edit_panel">
+  <section class="edit-panel">
+    <div class="edit-panel__content">
+      <h1>{{panelName}}</h1>
+
+      <form class="form" action="">
+        
+        <label for="">Label</label>
+        <input type="text" name="thing" id="thing" placeholder="Stuff">
+        
+        <label for="">Label</label>
+        <input type="text" name="thing" id="thing" placeholder="Stuff">
+        
+        <label for="">Label</label>
+        <input type="text" name="thing" id="thing" placeholder="Stuff">
+        
+        <label for="">Label</label>
+        <input type="text" name="thing" id="thing" placeholder="Stuff">
+      </form>
+
+      <button class="button-square button-square--save">Save</button>
+      <button class="button-square button-square--cancel">Cancel</button>
+    </div>
+  </section>
 </template>

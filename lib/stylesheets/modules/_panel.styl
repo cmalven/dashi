@@ -18,6 +18,8 @@
   position: absolute;
   overflow: hidden;
   cursor: move;
+  transform-style: preserve-3d;
+  perspective: 500px;
 }
 
 .panel:before {
@@ -48,7 +50,9 @@
   color: #fff;
 }
 
-// Remove Button
+
+/* Remove Button
+   ============================================================== */
 
 .panel__remove-button {
   position: absolute;
@@ -60,6 +64,7 @@
   cursor: pointer;
   transition: 0.2s;
   transform: translate3d(3.2em, -3.2em, 0);
+  z-index: 9999;
 }
 
 .panel__remove-button:hover {
@@ -85,4 +90,38 @@
 .panel__remove-button__confirm.is-visible {
   transform: translate3d(0, 0, 0);
   display: block;
+}
+
+
+/* Edit Button
+   ============================================================== */
+
+.panel__edit-button {
+  position: absolute;
+  top: 0.5em;
+  right: 4em;
+  width: 2.4em;
+  height: 2.4em;
+  border-radius: 10em;
+  background: rgba(#000, 0.7) url(../../images/all_edit-panel.svg) no-repeat center center;
+  text-indent: -9999em;
+  cursor: pointer;
+  transition: 0.2s;
+  transform: scale3d(0, 0, 0);
+  opacity: 0;
+}
+
+.panel__edit-button:hover {
+  background-color: #000;
+}
+
+.panel:hover .panel__edit-button {
+  transform: scale3d(1, 1, 1);
+  opacity: 1;
+}
+
+.is-being-edited .panel__edit-button {
+  transform: scale3d(1, 1, 1);
+  opacity: 1;
+  box-shadow: 0 0 0 4px rgba(#fff, 0.6);
 }

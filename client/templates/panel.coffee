@@ -21,9 +21,17 @@ Template.panel.pos_y_css = ->
 Template.panel.pos_x_css = ->
   return createCss (@pos_x * Session.get('window_width')), 'left'
 
+Template.panel.is_being_edited_class = ->
+  if Session.get('panel_being_edited') is @_id then 'is-being-edited' else ''
+
 Template.panel.rendered = ->
   if not @rendered
     opts = this.data
     opts.el = @find('.panel')
     panelManager.add new root[opts.panelName](opts)
     @rendered = true
+
+Template.panel.preserve({
+  '.panel[id]': (node) ->
+    return node.id
+})

@@ -12,7 +12,3 @@ Template.dashboard_view.rendered = ->
 
 Template.dashboard_view.destroyed = ->
   root.panelManager = null
-
-Template.dashboard_view.preserve
-  '.panel[id]': (node) ->
-    return node.id

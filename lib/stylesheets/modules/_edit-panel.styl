@@ -1,0 +1,71 @@
+/* ==============================================================
+   Edit Panel
+   ============================================================== */
+
+
+//---------------------------------------------------------------
+// Base
+//---------------------------------------------------------------
+
+
+// ## Edit Panel `.edit-panel`
+// For editing the data & settings of a panel
+
+.edit-panel {
+  position: absolute;
+  top: 4em;
+  right: 4em;
+  bottom: 4em;
+  left: 4em;
+  display: block;
+  background-color: #333;
+  transform: rotateY(180deg);
+  backface-visibility: hidden;
+  border-radius: 6px;
+  transition: 0.7s;
+  opacity: 0;
+  box-shadow: 0 2px 15px rgba(#000, 0.2);
+}
+
+.edit-panel h1 {
+  font-size: 1.8rem;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  text-align: center;
+  margin-bottom: 2em;
+}
+
+.is-being-edited .edit-panel {
+  transform: rotateY(0);
+  opacity: 1;
+}
+
+.edit-panel:before {
+  display: inline-block;
+  margin-right: -0.25em; /* Adjusts for spacing */
+  width: 0.01%;
+  height: 100%;
+  content:'';
+  vertical-align: middle;
+}
+
+.edit-panel__content {
+  text-align: left;
+  display: inline-block;
+  vertical-align: middle;
+  width: 99.5%;
+  padding: 2em;
+}
+
+//
+// Included Modules
+//
+
+.edit-panel .button-square {
+  width: 48.5%;
+  margin-top: 2em;
+}
+
+.edit-panel .button-square + .button-square {
+  margin-left: 1%;
+}
