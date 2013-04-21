@@ -24,3 +24,9 @@ Meteor.methods
 
   removePanel: (panelId) ->
     return Panels.remove({_id: panelId})
+
+  updatePanel: (panelId, opts) ->
+    console.log 'updating'
+    console.log 'panelId', panelId
+    console.log 'opts', opts
+    return update Panels, panelId, opts
