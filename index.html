@@ -60,17 +60,10 @@
 
       <form class="form" action="">
         
-        <label for="">Label</label>
-        <input type="text" name="thing" id="thing" placeholder="Stuff">
-        
-        <label for="">Label</label>
-        <input type="text" name="thing2" id="thing2" placeholder="Stuff">
-        
-        <label for="">Label</label>
-        <input type="text" name="thing3" id="thing3" placeholder="Stuff">
-        
-        <label for="">Label</label>
-        <input type="text" name="thing4" id="thing4" placeholder="Stuff">
+        {{#each params}}
+          <label for="">{{label}}</label>
+          <input type="text" name="{{name}}" id="{{name}}" value="{{value}}">
+        {{/each}}
       </form>
 
       <button class="button-square button-square--save">Save</button>
