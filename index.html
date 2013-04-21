@@ -35,5 +35,14 @@
     <div class="panel__content-wrapper">
       {{{dynamicTemplate}}}
     </div>
+    {{> remove_panel_button}}
   </li>
+</template>
+
+<template name="remove_panel_button">
+  <div class="panel__remove-button">
+    <p class="panel__remove-button__confirm">
+      Permanently remove this panel?
+    </p>
+  </div>
 </template>

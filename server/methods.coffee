@@ -22,5 +22,5 @@ Meteor.methods
 
     return Panels.insert newPanel
 
-  removePanel: (panelName) ->
-    return Panels.remove({panelName: panelName})
+  removePanel: (panelId) ->
+    return Panels.remove({_id: panelId})

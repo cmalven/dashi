@@ -16,6 +16,8 @@
   text-align: center;
   width: 33.3%; // This is default only, will probably be overridden by individual panel
   position: absolute;
+  overflow: hidden;
+  cursor: move;
 }
 
 .panel:before {
@@ -44,4 +46,30 @@
 
 .panel__label {
   color: #fff;
+}
+
+// Remove Button
+
+.panel__remove-button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 3em;
+  height: 3em;
+  background: rgba(#000, 0.7) url(../../images/all_remove-x.svg) no-repeat center center;
+  cursor: pointer;
+  transition: 0.2s;
+  transform: translate3d(3.2em, -3.2em, 0);
+}
+
+.panel__remove-button:hover {
+  background-color: #000;
+}
+
+.panel__remove-button__confirm {
+  display: none;
+}
+
+.panel:hover .panel__remove-button {
+  transform: translate3d(0, 0, 0);
 }

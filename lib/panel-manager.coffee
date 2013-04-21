@@ -10,6 +10,17 @@ class root.PanelManager
       @_updateInternalGridUnits()
       @_updatePackeryGrid()
 
+    Panels.find().observeChanges
+      added: (id, fields) =>
+        panel = 
+          options: fields
+        panel.options.el = $("##{id}-panel")[0]
+        @_addPanelToPackery(panel) if panel.options.el?
+
+      removed: (id) =>
+        el = $("##{id}-panel")[0]
+        @packery.remove(el)
+
     @_initializePackery()
 
   add: (panel) ->
