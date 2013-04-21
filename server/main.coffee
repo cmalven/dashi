@@ -65,6 +65,32 @@ panelOptionsArray = [
       ]
     }
   }
+  {
+    panelName: 'MessagePanel'
+    params: {
+      required: [
+
+      ]
+      optional: [
+        {
+          name: 'grid_size_x'
+          default: 1
+        }
+        {
+          name: 'grid_size_y'
+          default: 1
+        }
+        {
+          name: 'update_interval'
+          default: 60000
+        }
+        {
+          name: 'dashboard_id'
+          default: '001'
+        }
+      ]
+    }
+  }
 ]
 _.each panelOptionsArray, (panelOption) ->
   PanelOptions?.insert panelOption

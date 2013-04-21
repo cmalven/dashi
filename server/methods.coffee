@@ -30,3 +30,6 @@ Meteor.methods
     console.log 'panelId', panelId
     console.log 'opts', opts
     return update Panels, panelId, opts
+
+  addMessage: (messageData) ->
+    return Messages.insert messageData

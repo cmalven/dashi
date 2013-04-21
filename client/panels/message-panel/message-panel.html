@@ -1,0 +1,16 @@
+<template name="messagepanel">
+  {{#with latest_message}}
+    <h1 class="message-panel__time-ago">{{time_ago}}</h1>
+    <div class="message-panel__latest-message">
+      <p>{{message}}</p>
+      <span>– {{sender}}</span>
+    </div>
+  {{/with}}
+
+  <form class="message-panel__form" action="">
+    <input type="text" id="message" name="message" placeholder="What do you have to say?" autocomplete="off">
+    
+    <button class="message-panel__form__send">Send</button>
+  </form>
+  
+</template>

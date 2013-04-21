@@ -1,0 +1,76 @@
+/* ==============================================================
+   Message Panel
+   ============================================================== */
+
+@import "nib";
+
+
+//---------------------------------------------------------------
+// Base
+//---------------------------------------------------------------
+
+
+.message-panel {
+  background-color: #FFE375;
+  color: #fff;
+}
+
+//
+// Sub-Modules
+//
+
+.message-panel__time-ago {
+  font-size: 1.8rem;
+  text-shadow: 0 1px 2px rgba(#000, 0.1);
+}
+
+.message-panel__latest-message {
+  margin: 3em;
+  margin-bottom: 6em;
+  padding: 2.4em 2em;
+  border-radius: 8px;
+  background-color: #fff;
+  color: #BAA4DF;
+  
+  p {
+    font-size: 2.4rem;
+    line-height: 1.4;
+    margin-bottom: 0.5em;
+  }
+
+  span {
+    font-size: 1.5rem;
+  }
+}
+
+.message-panel__form {
+  
+  input {
+    padding: 0.5em 1em;
+    width: 67%;
+    border: none;
+    border-radius: 10em;
+    background-color: rgba(#fff, 0.5);
+    font-size: 1.6rem;
+  }
+
+  input:focus {
+    outline: none;
+  }
+}
+
+.message-panel__form__send {
+  width: 2.6em;
+  height: 2.6em;
+  border: none;
+  border-radius: 10em;
+  text-indent: -9999em;
+  line-height: 2.6em;
+  margin-left: 0.5em;
+  cursor: pointer;
+  background-color: rgba(#000, 0.5);
+
+  &:hover {
+    background-color: rgba(#000, 0.7);
+  }
+}
