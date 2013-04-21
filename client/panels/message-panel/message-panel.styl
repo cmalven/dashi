@@ -25,8 +25,8 @@
 }
 
 .message-panel__latest-message {
-  margin: 3em;
-  margin-bottom: 6em;
+  margin: 2em;
+  margin-bottom: 4em;
   padding: 2.4em 2em;
   border-radius: 8px;
   background-color: #fff;
@@ -44,19 +44,39 @@
 }
 
 .message-panel__form {
-  
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1.3em 1em;
+  background-color: rgba(#000, 0.1);
+  transition: 0.3s;
+  transform: translate3d(0, 5.5em, 0);
+
   input {
     padding: 0.5em 1em;
     width: 67%;
     border: none;
     border-radius: 10em;
-    background-color: rgba(#fff, 0.5);
+    background-color: rgba(#fff, 0.6);
     font-size: 1.6rem;
+  }
+
+  ::-webkit-input-placeholder { /* WebKit browsers */
+    color: rgba(#000, 0.3);
+  }
+
+  ::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color: rgba(#000, 0.3);
   }
 
   input:focus {
     outline: none;
   }
+}
+
+.message-panel:hover .message-panel__form {
+  transform: translate3d(0, 0, 0);
 }
 
 .message-panel__form__send {
