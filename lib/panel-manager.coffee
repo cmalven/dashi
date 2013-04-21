@@ -52,9 +52,8 @@ class root.PanelManager
     pckry.bindDraggabillyEvents draggie
 
   _updatePackeryGrid: () ->
-    @packery?.columnWidth = @gridUnitWidth
-    @packery?.rowHeight = @gridUnitHeight
-    @packery?.layout()
+    @packery?.options.columnWidth = @gridUnitWidth
+    @packery?.options.rowHeight = @gridUnitHeight
 
   _updateInternalGridUnits: =>
     @gridUnitWidth = Session.get('window_width') / Session.get('grid_units_x')
