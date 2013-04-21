@@ -66,10 +66,23 @@
   background-color: #000;
 }
 
-.panel__remove-button__confirm {
-  display: none;
-}
 
 .panel:hover .panel__remove-button {
   transform: translate3d(0, 0, 0);
+}
+
+.panel__remove-button__confirm {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 15em;
+  background-color: #f3332b;
+  line-height: 3em;
+  cursor: pointer;
+  display: none;
+}
+
+.panel__remove-button__confirm.is-visible {
+  transform: translate3d(0, 0, 0);
+  display: block;
 }
