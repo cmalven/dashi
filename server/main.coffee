@@ -139,3 +139,9 @@ if not Dashboards.find().count()
     grid_size_x: 1
     grid_size_y: 1
     dashboard_id: '001'
+
+  Meteor.call 'addMessage',
+    dashboard_id: '001'
+    message: 'Welcome to Dashi!'
+    time: '2013-04-21T20:38:33-05:00'
+    sender: 'Dashi'
