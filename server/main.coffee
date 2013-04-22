@@ -1,3 +1,21 @@
+# Publications
+
+Meteor.publish 'dashboards', (dashboard_id) ->
+  if dashboard_id?
+    return Dashboards.find({_id: dashboard_id})
+  else
+    return Dashboards.find(_id: '001')
+
+Meteor.publish 'panelOptions', ->
+  return PanelOptions.find()
+
+Meteor.publish 'panels', (dashboard_id) ->
+  return Panels.find({dashboard_id: dashboard_id})
+
+Meteor.publish 'messages', (dashboard_id) ->
+  return Messages.find({dashboard_id: dashboard_id})
+
+
 # Configure the Dashboards and Panels
 
 # Reset the panel options
@@ -111,7 +129,6 @@ if not Dashboards.find().count()
   Meteor.call 'addPanel', 'TimePanel',
     grid_size_x: 1
     grid_size_y: 1
-    dashboard_id: '001'
     
   Meteor.call 'addPanel', 'WeatherPanel',
     api_key: '967742df1f62e1552f0d5e16301dab3b'

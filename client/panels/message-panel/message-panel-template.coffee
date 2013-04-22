@@ -13,6 +13,7 @@ Template.messagepanel.events
     form = $(evt.target).closest('.panel').find('.message-panel__form')
     formContent = form.serializeObject()
     formContent.time = moment().format()
+    formContent.dashboard_id = Session.get('dashboard_id')
     Meteor.call 'addMessage', formContent
     form.find('input').val('')
     evt.preventDefault()
