@@ -52,8 +52,8 @@ class root.PanelManager
     @packery.on 'layoutComplete', (packeryInstance, laidOutItems) ->
       _.each laidOutItems, (item) ->
         update Panels, item.element.attributes['data-panel-id'].value,
-        'pos_x': if item.position.x is 0 then 0 else (item.position.x / Session.get('window_width'))
-        'pos_y': if item.position.y is 0 then 0 else (item.position.y / Session.get('window_height'))
+        'pos_x': if item.position.x is 0 then 0 else floorToDecimals(item.position.x / Session.get('window_width'))
+        'pos_y': if item.position.y is 0 then 0 else floorToDecimals(item.position.y / Session.get('window_height'))
 
   _addPanelToPackery: (panel) ->
     pckry = @packery
@@ -67,5 +67,5 @@ class root.PanelManager
     @packery?.options.rowHeight = @gridUnitHeight
 
   _updateInternalGridUnits: =>
-    @gridUnitWidth = Session.get('window_width') / Session.get('grid_units_x')
-    @gridUnitHeight = Session.get('window_height') / Session.get('grid_units_y')
+    @gridUnitWidth = floorToDecimals(Session.get('window_width') / Session.get('grid_units_x'))
+    @gridUnitHeight = floorToDecimals(Session.get('window_height') / Session.get('grid_units_y'))

@@ -117,3 +117,8 @@ if not Dashboards.find().count()
     api_key: '967742df1f62e1552f0d5e16301dab3b'
     grid_size_x: 1
     grid_size_y: 2
+
+  Meteor.call 'addPanel', 'MessagePanel',
+    grid_size_x: 1
+    grid_size_y: 1
+    dashboard_id: '001'
