@@ -1,0 +1,55 @@
+/* ==============================================================
+   Toolbar
+   ============================================================== */
+
+
+//---------------------------------------------------------------
+// Base
+//---------------------------------------------------------------
+
+
+// ## Toolbar `.toolbar`
+// Contains dashboard-wide controls
+
+.toolbar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 999999999;
+  padding: 1em 2em;
+  width: 20em;
+  background-color: #333;
+  transition: 0.3s;
+  transform: translate3d(20em, 0, 0);
+}
+
+.toolbar:hover {
+  transform: translate3d(0, 0, 0);
+}
+
+//
+// Sub-Modules
+//
+
+.toolbar__expand-heading {
+  position: absolute;
+  top: 50%;
+  left: -9em;
+  padding: 1em;
+  height: 3.2em;
+  background-color: #333;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-size: 0.9rem;
+  opacity: 0;
+  cursor: pointer;
+  transition: 0.3s;
+  transform: rotateZ(-90deg);
+}
+
+.is-mouse-moving .toolbar__expand-heading,
+.toolbar:hover .toolbar__expand-heading {
+  opacity: 1;
+}

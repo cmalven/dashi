@@ -32,3 +32,11 @@ Router = new DashboardRouter
 Meteor.startup ->
   Backbone.history.start({pushState: true})
   $(window).trigger 'resize'
+
+  # Listen for mouse movement
+  $('body').on 'mousemove', (evt) ->
+    $(this).addClass 'is-mouse-moving'
+    Meteor.clearTimeout(root.mouseMoveTimeout)
+    root.mouseMoveTimeout = Meteor.setTimeout( ->
+      $('body').removeClass 'is-mouse-moving'
+    , 2000)
