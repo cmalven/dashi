@@ -22,6 +22,38 @@ Meteor.publish 'messages', (dashboard_id) ->
 PanelOptions.remove({})
 panelOptionsArray = [
   {
+    panelName: 'CtaTrainPanel'
+    params: {
+      required: [
+        {
+          name: 'api_key'
+        }
+      ]
+      optional: [
+        {
+          name: 'station_id'
+          default: '40710'
+        }
+        {
+          name: 'grid_size_x'
+          default: 1
+        }
+        {
+          name: 'grid_size_y'
+          default: 1
+        }
+        {
+          name: 'update_interval'
+          default: 120000
+        }
+        {
+          name: 'dashboard_id'
+          default: '001'
+        }
+      ]
+    }
+  }
+  {
     panelName: 'WeatherPanel'
     params: {
       required: [
@@ -134,6 +166,11 @@ if not Dashboards.find().count()
     api_key: '967742df1f62e1552f0d5e16301dab3b'
     grid_size_x: 1
     grid_size_y: 2
+    
+  Meteor.call 'addPanel', 'CtaTrainPanel',
+    api_key: '3654c77e9dcd4acaa89b6e5ded7fbf86'
+    grid_size_x: 1
+    grid_size_y: 1
 
   Meteor.call 'addPanel', 'MessagePanel',
     grid_size_x: 1
