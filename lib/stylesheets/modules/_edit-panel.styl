@@ -18,14 +18,16 @@
   bottom: 4em;
   left: 4em;
   display: block;
+  overflow-y: auto;
+  margin: 0 auto;
+  max-width: 30em;
+  border-radius: 6px;
   background-color: #333;
+  box-shadow: 0 2px 15px rgba(#000, 0.2);
+  opacity: 0;
+  transition: 0.7s;
   transform: rotateY(180deg);
   backface-visibility: hidden;
-  border-radius: 6px;
-  transition: 0.7s;
-  opacity: 0;
-  box-shadow: 0 2px 15px rgba(#000, 0.2);
-  overflow-y: auto;
 }
 
 .edit-panel h1 {
