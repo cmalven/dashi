@@ -11,8 +11,11 @@ A simple dashboard built using Meteor.js
 # Install Meteor
 curl https://install.meteor.com | /bin/sh
 
-# Start the App
-meteor
+# Install Meteorite
+sudo npm install -g meteorite
+
+# Start the App (only need sudo the first time)
+sudo mrt
 ```
 
 ## Finding your way around
