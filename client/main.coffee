@@ -1,7 +1,7 @@
 root = exports ? this
 
 # Subscriptions
-Meteor.autosubscribe ->
+Deps.autorun ->
   dashboard_id = Session.get('dashboard_id')
   Meteor.subscribe('panelOptions')
   Meteor.subscribe('dashboards', dashboard_id)
