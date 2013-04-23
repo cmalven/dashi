@@ -16,6 +16,7 @@ class root.WeatherPanel extends Panel
     that = @
     url = "#{@options.url}/#{@options.api_key}/#{@options.location}"
     Meteor.call 'fetch', url, (error, result) ->
+      result = JSON.parse(result)
       console.log 'weather-data', result
       update Panels, that.options._id,
         'current_summary': result.currently.summary
