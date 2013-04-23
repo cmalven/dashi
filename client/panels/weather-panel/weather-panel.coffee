@@ -14,12 +14,10 @@ class root.WeatherPanel extends Panel
 
   _update: =>
     that = @
-    $.ajax
-      url: "#{@options.url}/#{@options.api_key}/#{@options.location}"
-      dataType: "jsonp"
-      success: (data) ->
-        console.log 'weather-data', data
-        update Panels, that.options._id,
-          'current_summary': data.currently.summary
-          'current_icon': data.currently.icon
-          'current_temperature': data.currently.temperature
+    url = "#{@options.url}/#{@options.api_key}/#{@options.location}"
+    Meteor.call 'fetch', url, (error, result) ->
+      console.log 'weather-data', result
+      update Panels, that.options._id,
+        'current_summary': result.currently.summary
+        'current_icon': result.currently.icon
+        'current_temperature': result.currently.temperature

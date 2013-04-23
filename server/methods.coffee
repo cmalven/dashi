@@ -8,8 +8,7 @@ Meteor.methods
     # Error if missing any required params
     _.each panelOption.params.required, (param) ->
       if not opts[param.name]
-        console.log "Missing the required #{param.name} param"
-        Meteor.Error 300, "Missing the required #{param.name} param"
+        throw new Meteor.Error 300, "Missing the required #{param.name} param"
         return false
 
     # Grab all default params
@@ -33,3 +32,11 @@ Meteor.methods
 
   addMessage: (messageData) ->
     return Messages.insert messageData
+
+  fetch: (url) ->
+    result = Meteor.http.get url
+    if result.statusCode is 200
+      return JSON.parse(result.content)
+    else
+      errorJson = JSON.parse(result.content)
+      throw new Meteor.Error(result.statusCode, errorJson.error)
