@@ -57,6 +57,20 @@ Template helpers for the panel. This file might not be necessary for all panels.
 
 ## Deployment
 
-The app is deployed at http://dashi.meteor.com
+### …on meteor.com
+Deploying to meteor.com is the fastest and easiest way to get the app online for live testing. The app is deployed at http://dashi.meteor.com
 
 `meteor deploy dashi.meteor.com	`
+
+### …on Heroku
+
+```
+# Create the app initially
+heroku apps:create your-app-name --stack cedar --buildpack https://github.com/oortcloud/heroku-buildpack-meteorite.git
+
+# Add MongoHQ
+heroku addons:add mongohq:sandbox
+
+# Deploy updates
+git push heroku master
+```
