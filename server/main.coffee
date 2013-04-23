@@ -175,7 +175,6 @@ if not Dashboards.find().count()
   Meteor.call 'addPanel', 'MessagePanel',
     grid_size_x: 1
     grid_size_y: 1
-    dashboard_id: '001'
 
   Meteor.call 'addMessage',
     dashboard_id: '001'
