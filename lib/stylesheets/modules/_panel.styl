@@ -66,6 +66,7 @@
   transition: 0.2s;
   transform: translate3d(3.2em, -3.2em, 0);
   z-index: 9999;
+  opacity: 0;
 }
 
 .panel__remove-button:hover {
@@ -75,6 +76,10 @@
 
 .panel:hover .panel__remove-button {
   transform: translate3d(0, 0, 0);
+}
+
+.is-mouse-moving .panel:hover .panel__remove-button {
+  opacity: 1;
 }
 
 .panel__remove-button__confirm {
@@ -118,6 +123,9 @@
 
 .panel:hover .panel__edit-button {
   transform: scale3d(1, 1, 1);
+}
+
+.is-mouse-moving .panel:hover .panel__edit-button {
   opacity: 1;
 }
 
