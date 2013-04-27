@@ -11,12 +11,6 @@ class root.PanelManager
       @_updatePackeryGrid()
 
     Panels.find().observeChanges
-      added: (id, fields) =>
-        panel = 
-          options: fields
-        panel.options.el = @_findPanelElById(id)
-        @_addPanelToPackery(panel) if panel.options.el?
-
       removed: (id) =>
         el = $("##{id}-panel")[0]
         @packery.remove(el)
@@ -26,12 +20,6 @@ class root.PanelManager
   add: (panel) ->
     @panels.push panel
     @_addPanelToPackery(panel)
-
-  remove: (panel) ->
-    # Not yet implemented
-
-  getPanels: ->
-    @panels
 
   _initializePackery: () ->
     container = document.querySelector('#panels')
@@ -64,7 +52,7 @@ class root.PanelManager
 
     # Fit the panel if it was just created
     timeAgo = moment().diff moment(panel.options.createdAt)
-    pckry.fit(panel.options.el, 0, 0) if timeAgo < 2000
+    pckry.fit(panel.options.el) if timeAgo < 2000
 
   _findPanelElById: (id) ->
     $("##{id}-panel")[0]
