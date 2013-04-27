@@ -17,17 +17,9 @@ Meteor.methods
       defaults[param.name] = param.default
 
     # Extend the panel defaults with the passed opts
-    newPanel = _.extend(
-      defaults, 
-      {
-        panelName: panelOptionName,
-        createdAt: moment().format()
-        grid_size_x: 2
-        grid_size_y: 2
-        dashboard_id: '001'
-      },
-      opts
-    )
+    newPanel = _.extend defaults, opts,
+      panelName: panelOptionName,
+      createdAt: moment().format()
 
     return Panels.insert newPanel
 

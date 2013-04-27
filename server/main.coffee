@@ -95,6 +95,24 @@ panelOptionsArray = [
   }
 ]
 _.each panelOptionsArray, (panelOption) ->
+  # Add shared defaults to each panel
+  panelOption.params.optional.push(
+    {
+      name: 'grid_size_x'
+      default: 2
+      input_type: 'number'
+    }
+    {
+      name: 'grid_size_y'
+      default: 2
+      input_type: 'number'
+    }
+    {
+      name: 'dashboard_id'
+      default: '001'
+      editable: false
+    }
+  )
   PanelOptions?.insert panelOption
 
 

@@ -54,9 +54,6 @@ class root.PanelManager
     timeAgo = moment().diff moment(panel.options.createdAt)
     pckry.fit(panel.options.el) if timeAgo < 2000
 
-  _findPanelElById: (id) ->
-    $("##{id}-panel")[0]
-
   _updatePackeryGrid: () ->
     @packery?.options.columnWidth = @gridUnitWidth
     @packery?.options.rowHeight = @gridUnitHeight
