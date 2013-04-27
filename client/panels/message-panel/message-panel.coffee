@@ -1,15 +1,12 @@
 root = exports ? this
 
 class root.MessagePanel extends Panel
-  constructor: (@options) ->
+  constructor: (@panel) ->
     # Default settings
-    settings =
+    @settings =
       panelCssClass: 'message'
 
-    # Merge default settings with options.
-    @options = $.extend settings, @options
-
-    super(@options)
+    super(@panel)
 
   _update: =>
     # Message stuff goes here

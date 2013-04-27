@@ -45,14 +45,14 @@ class root.PanelManager
 
   _addPanelToPackery: (panel) ->
     pckry = @packery
-    item = panel.options.el
+    item = panel.panel.el
     pckry.addItems item
     draggie = new Draggabilly item
     pckry.bindDraggabillyEvents draggie
 
     # Fit the panel if it was just created
-    timeAgo = moment().diff moment(panel.options.createdAt)
-    pckry.fit(panel.options.el) if timeAgo < 2000
+    timeAgo = moment().diff moment(panel.panel.createdAt)
+    pckry.fit(panel.panel.el) if timeAgo < 2000
 
   _updatePackeryGrid: () ->
     @packery?.options.columnWidth = @gridUnitWidth

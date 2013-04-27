@@ -1,28 +1,25 @@
 root = exports ? this
 
 class root.WeatherPanel extends Panel
-  constructor: (@options) ->
+  constructor: (@panel) ->
     # Default settings
-    settings =
+    @settings =
       panelCssClass: 'weather'
       url: 'https://api.forecast.io/forecast'
-
-    # Merge default settings with options.
-    @options = $.extend settings, @options
 
     # Add the geocoder for finding lat/lng by address
     @geocoder = new google.maps.Geocoder();
 
-    super(@options)
+    super(@panel)
 
   _update: =>
     that = @
-    @_geocodeAddress @options.city, (location) =>
-      url = "#{@options.url}/#{@options.forecast_api_key}/#{location}"
+    @_geocodeAddress @panel.city, (location) =>
+      url = "#{@settings.url}/#{@panel.forecast_api_key}/#{location}"
       Meteor.call 'fetch', url, (error, result) ->
         result = JSON.parse(result)
         console.log 'weather-data', result
-        update Panels, that.options._id,
+        update Panels, that.panel._id,
           'current_summary': result.currently.summary
           'current_icon': result.currently.icon
           'current_temperature': result.currently.temperature

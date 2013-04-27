@@ -1,14 +1,12 @@
 root = exports ? this
 
 class root.TimePanel extends Panel
-  constructor: (@options) ->
+  constructor: (@panel) ->
     # Default settings
-    settings =
+    @settings =
       panelCssClass: 'time'
 
-    # Merge default settings with options.
-    @options = $.extend settings, @options
-    super(@options)
+    super(@panel)
 
   _update: =>
     now = moment()
@@ -17,7 +15,7 @@ class root.TimePanel extends Panel
     seconds = now.format('ss')
     date = now.format('dddd, MMM D')
 
-    update Panels, @options._id,
+    update Panels, @panel._id,
       'hour': hour
       'minutes': minutes
       'seconds': seconds
