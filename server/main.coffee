@@ -165,7 +165,7 @@ if not Dashboards.find().count()
     grid_size_y: 2
     
   Meteor.call 'addPanel', 'WebPanel',
-    url: 'http://whyamicrazytoday.com/statusboard/index.html'
+    url: 'http://lunar.meteor.com'
     grid_size_x: 2
     grid_size_y: 2
 
