@@ -79,6 +79,23 @@ panelOptionsArray = [
     }
   }
   {
+    panelName: 'WebPanel'
+    panel_display_name: 'Web Snippet'
+    params: {
+      required: [
+        {
+          name: 'url'
+        }
+      ]
+      optional: [
+        {
+          name: 'update_interval'
+          default: 20000
+        }
+      ]
+    }
+  }
+  {
     panelName: 'MessagePanel'
     panel_display_name: 'Messages'
     params: {
@@ -144,6 +161,11 @@ if not Dashboards.find().count()
     grid_size_y: 2
 
   Meteor.call 'addPanel', 'MessagePanel',
+    grid_size_x: 2
+    grid_size_y: 2
+    
+  Meteor.call 'addPanel', 'WebPanel',
+    url: 'http://whyamicrazytoday.com/statusboard/index.html'
     grid_size_x: 2
     grid_size_y: 2
 
