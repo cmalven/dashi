@@ -48,17 +48,13 @@ panelOptionsArray = [
     params: {
       required: [
         {
-          name: 'api_key'
+          name: 'forecast_api_key'
         }
       ]
       optional: [
         {
           name: 'city'
           default: 'Chicago'
-        }
-        {
-          name: 'location'
-          default: '41.850,-87.629'
         }
         {
           name: 'update_interval'
@@ -138,7 +134,7 @@ if not Dashboards.find().count()
     grid_size_y: 2
     
   Meteor.call 'addPanel', 'WeatherPanel',
-    api_key: '967742df1f62e1552f0d5e16301dab3b'
+    forecast_api_key: '967742df1f62e1552f0d5e16301dab3b'
     grid_size_x: 2
     grid_size_y: 4
     
