@@ -10,7 +10,7 @@ class root.Panel
     # Start Update Interval
     Meteor.setInterval @_update, @panel.update_interval
 
-    # Watch for changes to the panel
+    # Update internal panel properties when updated
     Panels.find({_id: @panel._id}).observe
       changed: (id, fields) =>
         @panel = fields
