@@ -5,10 +5,7 @@ Template.dashboard_view.panels = ->
   Panels.find({dashboard_id: dashboardId})
 
 Template.dashboard_view.rendered = ->
-  # Create the panel manager on the first render
-  if not @rendered
-    root.panelManager = new PanelManager()
-    @rendered = true
+  root.panelManager or= new PanelManager()
 
 Template.dashboard_view.destroyed = ->
   root.panelManager = null
