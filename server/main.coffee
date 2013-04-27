@@ -36,15 +36,15 @@ panelOptionsArray = [
         }
         {
           name: 'grid_size_x'
-          default: 1
+          default: 2
         }
         {
           name: 'grid_size_y'
-          default: 1
+          default: 2
         }
         {
           name: 'update_interval'
-          default: 120000
+          default: 220000
         }
         {
           name: 'dashboard_id'
@@ -72,11 +72,11 @@ panelOptionsArray = [
         }
         {
           name: 'grid_size_x'
-          default: 1
+          default: 2
         }
         {
           name: 'grid_size_y'
-          default: 1
+          default: 2
         }
         {
           name: 'update_interval'
@@ -98,11 +98,11 @@ panelOptionsArray = [
       optional: [
         {
           name: 'grid_size_x'
-          default: 1
+          default: 2
         }
         {
           name: 'grid_size_y'
-          default: 1
+          default: 2
         }
         {
           name: 'update_interval'
@@ -124,11 +124,11 @@ panelOptionsArray = [
       optional: [
         {
           name: 'grid_size_x'
-          default: 1
+          default: 2
         }
         {
           name: 'grid_size_y'
-          default: 1
+          default: 2
         }
         {
           name: 'update_interval'

@@ -14,7 +14,7 @@ class root.PanelManager
       added: (id, fields) =>
         panel = 
           options: fields
-        panel.options.el = $("##{id}-panel")[0]
+        panel.options.el = @_findPanelElById(id)
         @_addPanelToPackery(panel) if panel.options.el?
 
       removed: (id) =>
@@ -61,6 +61,13 @@ class root.PanelManager
     pckry.addItems item
     draggie = new Draggabilly item
     pckry.bindDraggabillyEvents draggie
+
+    # Fit the panel if it was just created
+    timeAgo = moment().diff moment(panel.options.createdAt)
+    pckry.fit(panel.options.el, 0, 0) if timeAgo < 2000
+
+  _findPanelElById: (id) ->
+    $("##{id}-panel")[0]
 
   _updatePackeryGrid: () ->
     @packery?.options.columnWidth = @gridUnitWidth

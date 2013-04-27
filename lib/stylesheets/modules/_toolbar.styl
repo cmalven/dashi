@@ -18,10 +18,11 @@
   bottom: 0;
   z-index: 999999999;
   padding: 1em 2em;
-  width: 20em;
+  width: 24em;
   background-color: #333;
+  color: #fff;
   transition: 0.3s;
-  transform: translate3d(20em, 0, 0);
+  transform: translate3d(24em, 0, 0);
 }
 
 .toolbar:hover {
@@ -52,4 +53,21 @@
 .is-mouse-moving .toolbar__expand-heading,
 .toolbar:hover .toolbar__expand-heading {
   opacity: 1;
+}
+
+.toolbar__subhead {
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 1rem;
+  margin-bottom: 2em;
+}
+
+.toolbar__panel-options {
+
+}
+
+.toolbar__panel-options__link {
+  color: #fff;
+  text-decoration: none;
+  font-size: 2.4rem;
 }

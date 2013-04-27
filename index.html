@@ -34,6 +34,13 @@
 <template name="toolbar">
   <header class="toolbar">
     <h1 class="toolbar__expand-heading">Expand Toolbar</h1>
+
+    <h1 class="toolbar__subhead">Add a Panel</h1>
+    <ul class="toolbar__panel-options">
+      {{#each panel_options}}
+        <li><a href="" class="toolbar__panel-options__link" data-panel-option-name="{{_panelName}}">{{panelName}}</a></li>
+      {{/each}}
+    </ul>
   </header>
 </template>
 
