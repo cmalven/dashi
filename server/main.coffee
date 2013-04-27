@@ -23,6 +23,7 @@ PanelOptions.remove({})
 panelOptionsArray = [
   {
     panelName: 'CtaTrainPanel'
+    panel_display_name: 'CTA Train'
     params: {
       required: [
         {
@@ -43,6 +44,7 @@ panelOptionsArray = [
   }
   {
     panelName: 'WeatherPanel'
+    panel_display_name: 'Weather'
     params: {
       required: [
         {
@@ -67,6 +69,7 @@ panelOptionsArray = [
   }
   {
     panelName: 'TimePanel'
+    panel_display_name: 'Time'
     params: {
       required: [
 
@@ -81,6 +84,7 @@ panelOptionsArray = [
   }
   {
     panelName: 'MessagePanel'
+    panel_display_name: 'Messages'
     params: {
       required: [
 
