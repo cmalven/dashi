@@ -35,20 +35,8 @@ panelOptionsArray = [
           default: '40710'
         }
         {
-          name: 'grid_size_x'
-          default: 2
-        }
-        {
-          name: 'grid_size_y'
-          default: 2
-        }
-        {
           name: 'update_interval'
           default: 220000
-        }
-        {
-          name: 'dashboard_id'
-          default: '001'
         }
       ]
     }
@@ -71,20 +59,8 @@ panelOptionsArray = [
           default: '41.850,-87.629'
         }
         {
-          name: 'grid_size_x'
-          default: 2
-        }
-        {
-          name: 'grid_size_y'
-          default: 2
-        }
-        {
           name: 'update_interval'
           default: 300000
-        }
-        {
-          name: 'dashboard_id'
-          default: '001'
         }
       ]
     }
@@ -97,20 +73,8 @@ panelOptionsArray = [
       ]
       optional: [
         {
-          name: 'grid_size_x'
-          default: 2
-        }
-        {
-          name: 'grid_size_y'
-          default: 2
-        }
-        {
           name: 'update_interval'
           default: 20000
-        }
-        {
-          name: 'dashboard_id'
-          default: '001'
         }
       ]
     }
@@ -123,20 +87,8 @@ panelOptionsArray = [
       ]
       optional: [
         {
-          name: 'grid_size_x'
-          default: 2
-        }
-        {
-          name: 'grid_size_y'
-          default: 2
-        }
-        {
           name: 'update_interval'
           default: 60000
-        }
-        {
-          name: 'dashboard_id'
-          default: '001'
         }
       ]
     }
@@ -152,6 +104,7 @@ if not Dashboards.find().count()
   dashboardsArray = [
     {
       _id: '001'
+      title: 'Default'
     }
   ]
   _.each dashboardsArray, (dashboard) ->
