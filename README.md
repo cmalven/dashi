@@ -74,6 +74,11 @@ heroku addons:add mongohq:sandbox
 # Deploy updates
 git push heroku master
 ```
+### Resetting MongoHQ database on Heroku…
+
+```
+heroku addons:remove mongohq:sandbox && heroku addons:add mongohq:sandbox
+```
 
 ## Problems?
 
