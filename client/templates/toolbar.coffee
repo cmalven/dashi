@@ -6,4 +6,4 @@ Template.toolbar.panel_options = ->
 Template.toolbar.events
   'click .toolbar__panel-options__link': (evt, template) ->
     evt.preventDefault()
-    Meteor.call 'addPanel', @panelName
+    Session.set 'panel_being_created_id', @_id

@@ -1,18 +1,7 @@
 root = exports ? this
 
 Template.edit_panel.params = ->
-  currentPanel = @
-  sourcePanel = PanelOptions.findOne({panelName: @panelName})
-  allParams = _.union sourcePanel.params.optional, sourcePanel.params.required
-  # Filter out non-editable params
-  allParams = _.filter allParams, (param) ->
-    return not param.editable? or param.editable
-  return params = _.map allParams, (param) ->
-    item = {}
-    item.label = slang.capitalizeWords(param.name.replace(/_/g, ' '))
-    item.name = param.name
-    item.value = currentPanel[param.name]
-    return item
+  return getPanelOptionParams @
 
 Template.edit_panel.preserve ['.edit-panel']
 
