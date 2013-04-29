@@ -74,3 +74,26 @@ heroku addons:add mongohq:sandbox
 # Deploy updates
 git push heroku master
 ```
+
+## Problems?
+
+Meteor is still pretty fresh, so you're likely to run into some issues every once in awhile. Outlined below are the common issues and ways to address them:
+
+### Issues with MongoDB
+
+```
+# Reset the database
+meteor reset
+```
+
+### Issues with Meteorite
+
+```
+# Try running the problem command again as an admin, e.g.
+sudo mrt
+
+# If that fails, get rid of Meteorite and reinstall
+sudo mrt uninstall --system
+sudo npm uninstall -g meteorite
+sudo npm install -g meteorite
+```
