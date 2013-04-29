@@ -88,7 +88,7 @@ Meteor is still pretty fresh, so you're likely to run into some issues every onc
 
 ```
 # Reset the database
-meteor reset
+mrt reset
 ```
 
 ### Issues with Meteorite
