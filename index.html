@@ -22,6 +22,8 @@
 </template>
 
 <template name="dashboard_list">
+  {{loginButtons}}
+
   {{#each dashboards}}
     <a href="/dashboard/{{_id}}">View the Dashboard {{_id}}</a>
   {{/each}}
@@ -37,7 +39,7 @@
 </template>
 
 <template name="toolbar">
-  <header class="toolbar">
+  <nav class="toolbar">
     <h1 class="toolbar__expand-heading">Expand Toolbar</h1>
 
     <h1 class="toolbar__subhead">Add a Panel</h1>
@@ -49,7 +51,9 @@
         </li>
       {{/each}}
     </ul>
-  </header>
+
+    {{loginButtons}}
+  </nav>
 </template>
 
 <template name="new_panel_dropdown">
