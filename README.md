@@ -98,7 +98,5 @@ mrt reset
 sudo mrt
 
 # If that fails, get rid of Meteorite and reinstall
-sudo mrt uninstall --system
-sudo npm uninstall -g meteorite
-sudo npm install -g meteorite
+sudo mrt uninstall --system && sudo npm install -g meteorite && sudo mrt
 ```
