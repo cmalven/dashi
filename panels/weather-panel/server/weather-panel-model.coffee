@@ -6,9 +6,7 @@ panelOptionsArray.push
   panel_display_name: 'Weather'
   params: {
     required: [
-      {
-        name: 'forecast_api_key'
-      }
+      
     ]
     optional: [
       {

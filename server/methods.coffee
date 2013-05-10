@@ -31,11 +31,3 @@ Meteor.methods
 
   addMessage: (messageData) ->
     return Messages.insert messageData
-
-  fetch: (url) ->
-    result = Meteor.http.get url
-    if result.statusCode is 200
-      return result.content
-    else
-      errorJson = JSON.parse(result.content)
-      throw new Meteor.Error(result.statusCode, errorJson.error)

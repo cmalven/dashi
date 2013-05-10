@@ -5,7 +5,6 @@ class root.WeatherPanel extends Panel
     # Default settings
     @settings =
       panelCssClass: 'weather'
-      url: 'https://api.forecast.io/forecast'
 
     # Add the geocoder for finding lat/lng by address
     @geocoder = new google.maps.Geocoder();
@@ -15,14 +14,12 @@ class root.WeatherPanel extends Panel
   _update: =>
     that = @
     @_geocodeAddress @panel.city, (location) =>
-      url = "#{@settings.url}/#{@panel.forecast_api_key}/#{location}"
-      Meteor.call 'fetch', url, (error, result) ->
-        result = JSON.parse(result)
+      Meteor.call 'fetchWeather', location, (error, result) ->
         console.log 'weather-data', result
         update Panels, that.panel._id,
           'current_summary': result.currently.summary
           'current_icon': result.currently.icon
-          'current_temperature': result.currently.temperature
+          'current_temperature': Math.round result.currently.temperature
 
   _geocodeAddress: (address, callback) =>
     @geocoder.geocode(
@@ -30,7 +27,7 @@ class root.WeatherPanel extends Panel
       (results, status) ->
         if status is google.maps.GeocoderStatus.OK
           location = results[0].geometry.location
-          callback "#{location.jb},#{location.kb}"
+          callback "#{location.kb},#{location.lb}"
         else
           console.log "Geocode was not successful for the following reason: #{status}"
     )
