@@ -18,6 +18,18 @@ sudo npm install -g meteorite
 sudo mrt
 ```
 
+## API Keys
+
+Certain dashboard panels rely on API keys to function. When working with the app locally, the easiest way to handle this is by adding a file called `api_keys.coffee` to `/server`, with contents similar to the following:
+
+```
+process.env.FORECAST_API_KEY = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXX'
+process.env.CTA_TRAIN_TRACKER_API_KEY = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXX'
+```
+
+It's up to you to acquire and supply your own API keys for all services. `api_keys.coffee` should not be checked into version control for security reasons. In fact, its add to `.gitignore` by default.
+
+
 ## Finding your way around
 
 ```
@@ -63,11 +75,6 @@ Defines the parameters available when creating or editing this panel type. This 
 
 ## Deployment
 
-### …on meteor.com
-Deploying to meteor.com is the fastest and easiest way to get the app online for live testing. The app is deployed at http://dashi.meteor.com
-
-`meteor deploy dashi.meteor.com	`
-
 ### …on Heroku
 
 ```
@@ -84,6 +91,15 @@ git push heroku master
 
 ```
 heroku addons:remove mongohq:sandbox && heroku addons:add mongohq:sandbox
+```
+
+### API Keys on Heroku
+
+Certain dashboard panels rely on API keys to function. You can add your API keys to Heroku via Environment variables, like so:
+
+```
+heroku config:add FORECAST_API_KEY=XXXXXXXXXXXXXXXXXXXXXXXXXXXX
+heroku config:add CTA_TRAIN_TRACKER_API_KEY=XXXXXXXXXXXXXXXXXXXXXXXXXXXX
 ```
 
 ## Problems?

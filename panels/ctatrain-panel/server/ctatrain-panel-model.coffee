@@ -6,9 +6,7 @@ panelOptionsArray.push
   panel_display_name: 'CTA Train'
   params: {
     required: [
-      {
-        name: 'api_key'
-      }
+      
     ]
     optional: [
       {
