@@ -67,7 +67,7 @@ if not Dashboards.find().count()
     grid_size_x: 2
     grid_size_y: 2
 
-  Meteor.call 'addPanel', 'MessagePanel',
+  Meteor.call 'addPanel', 'TwitterPanel',
     grid_size_x: 2
     grid_size_y: 2
     
