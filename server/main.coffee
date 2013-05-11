@@ -75,6 +75,11 @@ if not Dashboards.find().count()
     url: 'http://lunar.meteor.com'
     grid_size_x: 2
     grid_size_y: 2
+    
+  Meteor.call 'addPanel', 'HelpScoutPanel',
+    mailbox_id: '2724'
+    grid_size_x: 2
+    grid_size_y: 2
 
   Meteor.call 'addMessage',
     dashboard_id: '001'
