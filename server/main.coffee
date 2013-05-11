@@ -81,3 +81,22 @@ if not Dashboards.find().count()
     message: 'Welcome to Dashi!'
     time: '2013-04-21T20:38:33-05:00'
     sender: 'Dashi'
+
+
+# Permissions
+
+Panels.allow
+  insert: ->
+    return false
+  update: ->
+    return true
+  remove: ->
+    return false
+
+PanelOptions.allow
+  insert: ->
+    return false
+  update: ->
+    return false
+  remove: ->
+    return false
