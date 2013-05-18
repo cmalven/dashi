@@ -26,8 +26,9 @@ class root.PanelManager
     @packery = new Packery(
       container,
       {
-        columnWidth: @gridUnitWidth,
+        columnWidth: @gridUnitWidth
         rowHeight: @gridUnitHeight
+        gutter: Session.get 'grid_spacing'
       }
     )
 
@@ -59,5 +60,5 @@ class root.PanelManager
     @packery?.options.rowHeight = @gridUnitHeight
 
   _updateInternalGridUnits: =>
-    @gridUnitWidth = floorToDecimals(Session.get('window_width') / Session.get('grid_units_x'))
-    @gridUnitHeight = floorToDecimals(Session.get('window_height') / Session.get('grid_units_y'))
+    @gridUnitWidth = gridUnits.width()
+    @gridUnitHeight = gridUnits.height()

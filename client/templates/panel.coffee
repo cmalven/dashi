@@ -8,12 +8,12 @@ Template.panel.dynamicTemplate = ->
   return Template[panelName](@)
 
 Template.panel.width_css = ->
-  gridUnitX = floorToDecimals(Session.get('window_width') / Session.get('grid_units_x'))
-  return createCss (@grid_size_x * gridUnitX), 'width'
+  gutterWidth = Session.get('grid_spacing') * (@grid_size_x - 1)
+  return createCss (@grid_size_x * gridUnits.width() + gutterWidth), 'width'
 
 Template.panel.height_css = ->
-  gridUnitY = floorToDecimals(Session.get('window_height') / Session.get('grid_units_y'))
-  return createCss (@grid_size_y * gridUnitY), 'height'
+  gutterHeight = Session.get('grid_spacing') * (@grid_size_y - 1)
+  return createCss (@grid_size_y * gridUnits.height() + gutterHeight), 'height'
 
 Template.panel.pos_y_css = ->
   return createCss (@pos_y * Session.get('window_height')), 'top'
