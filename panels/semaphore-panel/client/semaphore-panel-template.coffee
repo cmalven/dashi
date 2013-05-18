@@ -6,4 +6,4 @@ Template.semaphorepanel.helpers
     if @status then 'Passed' else 'Failed'
     
   formatted_finished_at: ->
-    moment(@finished_at).format('h:mm a')
+    moment(@finished_at).fromNow()
