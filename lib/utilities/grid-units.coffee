@@ -4,11 +4,11 @@ root.gridUnits = {
 
   width: ->
     v = @updateVars()
-    return floorToDecimals((v.ww - @totalSpacingX()) / v.gx)
+    return floorToDecimals((v.ww - @totalSpacingX() - v.gm) / v.gx)
 
   height: ->
     v = @updateVars()
-    return floorToDecimals((v.wh - @totalSpacingY()) / v.gy)
+    return floorToDecimals((v.wh - @totalSpacingY() - v.gm) / v.gy)
 
   totalSpacingX: ->
     v = @updateVars()
@@ -22,6 +22,7 @@ root.gridUnits = {
     return {
       gx: Session.get('grid_units_x')
       gy: Session.get('grid_units_y')
+      gm: Session.get('grid_margin') * 2
       ww: Session.get('window_width')
       wh: Session.get('window_height')
     }

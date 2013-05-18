@@ -31,7 +31,7 @@
 </template>
 
 <template name="dashboard_view">
-  <ul id="panels" class="panels">
+  <ul id="panels" class="panels" style="{{grid_margin}}">
     {{#each panels}}
       {{> panel}}
     {{/each}}

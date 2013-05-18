@@ -12,6 +12,7 @@ Deps.autorun ->
 Session.set('grid_units_x', 6)
 Session.set('grid_units_y', 4)
 Session.set('grid_spacing', 50)
+Session.set('grid_margin', 60)
 
 # Global Resize
 $(window).on 'resize', (evt) ->
