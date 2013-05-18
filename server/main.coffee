@@ -80,6 +80,12 @@ if not Dashboards.find().count()
     mailbox_id: '2724'
     grid_size_x: 2
     grid_size_y: 2
+    
+  Meteor.call 'addPanel', 'SemaphorePanel',
+    project_hash_id: 'fc557c693e9ba7ad2b2794095217469a7dea29bb'
+    branch_id: '11132'
+    grid_size_x: 2
+    grid_size_y: 2
 
   Meteor.call 'addMessage',
     dashboard_id: '001'
