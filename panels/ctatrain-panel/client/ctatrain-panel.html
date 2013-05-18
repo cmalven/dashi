@@ -1,7 +1,11 @@
 <template name="ctatrainpanel">
-  {{#each stops}}
-    <h1>{{route}}</h1>
-    <h2>{{arrivalTime}}</h2>
-    <h3>{{destNm}}</h3>
-  {{/each}}
+  <ol>
+    {{#each stops}}
+      <li class="ctatrain-panel__stop {{old_class}}">
+        <p class="ctatrain-panel__stop__arrival-time">{{{arrivalTime}}}</h2>
+        <p class="ctatrain-panel__stop__route {{route_class}}">{{route}}</h2>
+        <p class="ctatrain-panel__stop__destination">{{destNm}}</h2>
+      </li>
+    {{/each}}
+  </ol>
 </template>

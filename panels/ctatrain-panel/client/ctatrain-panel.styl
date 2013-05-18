@@ -17,3 +17,97 @@
 //
 // Sub-Modules
 //
+
+.ctatrain-panel__stop__arrival-time,
+.ctatrain-panel__stop__route,
+.ctatrain-panel__stop__destination {
+  display: inline-block;
+  vertical-align: middle;
+  line-height: 1.0;
+}
+
+
+.ctatrain-panel__stop + .ctatrain-panel__stop:before {
+  position: relative;
+  left: 50%;
+  display: block;
+  margin-left: -1px;
+  width: 2px;
+  height: 20px;
+  background-color: #fff;
+  content: "";
+}
+
+.ctatrain-panel__stop.is-old {
+  opacity: 0.4;
+
+  .ctatrain-panel__stop__arrival-time {
+    visibility: hidden;
+  }
+}
+
+.ctatrain-panel__stop__arrival-time {
+  text-align: right;
+  font-size: 2.0rem;
+
+  em {
+    font-size: 1.4rem;
+  }
+}
+
+.ctatrain-panel__stop__route {
+  margin: 4px 15px;
+  width: 32px;
+  height: 32px;
+  border: 10px solid #fff;
+  border-radius: 30em;
+  background-color: black;
+  text-indent: -9999em;
+}
+
+.ctatrain-panel__stop__destination {
+  text-align: left;
+}
+
+.ctatrain-panel__stop__arrival-time,
+.ctatrain-panel__stop__destination {
+  width: 90px;
+}
+
+
+//---------------------------------------------------------------
+// Stop Colors
+//---------------------------------------------------------------
+
+
+.is-red {
+  background-color: #fc3640;
+}
+
+.is-blue {
+  background-color: #4dc7ff;
+}
+
+.is-brown {
+  background-color: #917357;
+}
+
+.is-green {
+  background-color: #61dc54;
+}
+
+.is-orange {
+  background-color: #fd9257;
+}
+
+.is-purple {
+  background-color: #9d6ff2;
+}
+
+.is-pink {
+  background-color: #fd7ba0;
+}
+
+.is-yellow {
+  background-color: #fecd3c;
+}
