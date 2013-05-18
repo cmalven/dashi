@@ -18,10 +18,10 @@ Template.panel.helpers
     return createCss (@grid_size_y * gridUnits.height() + gutterHeight), 'height'
 
   pos_y_css: ->
-    return createCss (@pos_y * Session.get('window_height')), 'top'
+    return createCss (@pos_y * (gridUnits.height() + Session.get('grid_spacing'))), 'top'
 
   pos_x_css: ->
-    return createCss (@pos_x * Session.get('window_width')), 'left'
+    return createCss (@pos_x * (gridUnits.width() + Session.get('grid_spacing'))), 'left'
 
   is_being_edited_class: ->
     if Session.get('panel_being_edited') is @_id then 'is-being-edited' else ''
