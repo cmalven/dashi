@@ -27,7 +27,7 @@ class root.WeatherPanel extends Panel
       (results, status) ->
         if status is google.maps.GeocoderStatus.OK
           location = results[0].geometry.location
-          callback "#{location.kb},#{location.lb}"
+          callback "#{location.jb},#{location.kb}"
         else
           console.log "Geocode was not successful for the following reason: #{status}"
     )
