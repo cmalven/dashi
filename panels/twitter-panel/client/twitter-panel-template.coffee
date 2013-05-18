@@ -1,3 +1,5 @@
 root = exports ? this
   
-Template.twitterpanel.latest_tweet = ->
+Template.twitterpanel.helpers
+  
+  latest_tweet: ->

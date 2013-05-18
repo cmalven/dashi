@@ -1,12 +1,15 @@
 root = exports ? this
+
+Template.messagepanel.helpers
   
-Template.messagepanel.latest_message = ->
-  messages = Messages.find({}, {sort: {time: -1}}).fetch()
-  latestMessage = messages[0]
-  return if not latestMessage?
-  latestMessage.time_ago = moment(latestMessage.time).fromNow()
-  latestMessage.sender or= 'Anonymous'
-  return latestMessage
+  latest_message: ->
+    messages = Messages.find({}, {sort: {time: -1}}).fetch()
+    latestMessage = messages[0]
+    return if not latestMessage?
+    latestMessage.time_ago = moment(latestMessage.time).fromNow()
+    latestMessage.sender or= 'Anonymous'
+    return latestMessage
+
 
 Template.messagepanel.events
   'click form button': (evt, template) ->

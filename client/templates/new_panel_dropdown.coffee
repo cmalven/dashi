@@ -1,10 +1,13 @@
 root = exports ? this
 
-Template.new_panel_dropdown.is_active = ->
-  return Session.get('panel_being_created_id') is @_id
+Template.new_panel_dropdown.helpers
 
-Template.new_panel_dropdown.params = ->
-  return getPanelOptionParams @
+  is_active: ->
+    return Session.get('panel_being_created_id') is @_id
+
+  params: ->
+    return getPanelOptionParams @
+
 
 Template.new_panel_dropdown.events
   'click .button-square--save': (evt, template) ->

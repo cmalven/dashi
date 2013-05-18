@@ -1,2 +1,4 @@
-Template.dashboard_list.dashboards = ->
-  Dashboards.find()
+Template.dashboard_list.helpers
+
+  dashboards: ->
+    Dashboards.find()

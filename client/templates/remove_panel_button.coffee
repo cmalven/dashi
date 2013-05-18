@@ -1,7 +1,10 @@
 root = exports ? this
 
-Template.remove_panel_button.confirm_visible_class = ->
-  if Session.get('show_remove_confirm_button') then 'is-visible' else ''
+Template.remove_panel_button.helpers
+
+  confirm_visible_class: ->
+    if Session.get('show_remove_confirm_button') then 'is-visible' else ''
+
 
 Template.remove_panel_button.events
   'click .panel__remove-button': (evt, template) ->

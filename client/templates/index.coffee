@@ -1,2 +1,4 @@
-Template.index.dashboard = ->
-  Session.get('dashboard_id')
+Template.index.helpers
+
+  dashboard: ->
+    Session.get('dashboard_id')

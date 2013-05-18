@@ -1,28 +1,31 @@
 root = exports ? this
 
-Template.panel.panel_id = ->
-  "#{@_id}-panel"
+Template.panel.helpers
 
-Template.panel.dynamicTemplate = ->
-  panelName = @panelName.toLowerCase()
-  return Template[panelName](@)
+  panel_id: ->
+    "#{@_id}-panel"
 
-Template.panel.width_css = ->
-  gutterWidth = Session.get('grid_spacing') * (@grid_size_x - 1)
-  return createCss (@grid_size_x * gridUnits.width() + gutterWidth), 'width'
+  dynamicTemplate: ->
+    panelName = @panelName.toLowerCase()
+    return Template[panelName](@)
 
-Template.panel.height_css = ->
-  gutterHeight = Session.get('grid_spacing') * (@grid_size_y - 1)
-  return createCss (@grid_size_y * gridUnits.height() + gutterHeight), 'height'
+  width_css: ->
+    gutterWidth = Session.get('grid_spacing') * (@grid_size_x - 1)
+    return createCss (@grid_size_x * gridUnits.width() + gutterWidth), 'width'
 
-Template.panel.pos_y_css = ->
-  return createCss (@pos_y * Session.get('window_height')), 'top'
+  height_css: ->
+    gutterHeight = Session.get('grid_spacing') * (@grid_size_y - 1)
+    return createCss (@grid_size_y * gridUnits.height() + gutterHeight), 'height'
 
-Template.panel.pos_x_css = ->
-  return createCss (@pos_x * Session.get('window_width')), 'left'
+  pos_y_css: ->
+    return createCss (@pos_y * Session.get('window_height')), 'top'
 
-Template.panel.is_being_edited_class = ->
-  if Session.get('panel_being_edited') is @_id then 'is-being-edited' else ''
+  pos_x_css: ->
+    return createCss (@pos_x * Session.get('window_width')), 'left'
+
+  is_being_edited_class: ->
+    if Session.get('panel_being_edited') is @_id then 'is-being-edited' else ''
+
 
 Template.panel.rendered = ->
   if panelManager? and not @rendered

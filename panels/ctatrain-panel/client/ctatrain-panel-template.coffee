@@ -1,9 +1,11 @@
 root = exports ? this
   
-Template.ctatrainpanel.route = ->
-  routeMap =
-    'Brn': 'Brown'
-  return routeMap[@rt]
+Template.ctatrainpanel.helpers
 
-Template.ctatrainpanel.arrivalTime = ->
-  return moment(@arrT, 'YYYYMMDD HH:mm:ss').fromNow()
+  route: ->
+    routeMap =
+      'Brn': 'Brown'
+    return routeMap[@rt]
+
+  arrivalTime: ->
+    return moment(@arrT, 'YYYYMMDD HH:mm:ss').fromNow()
