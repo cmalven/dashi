@@ -8,6 +8,18 @@
 // Base
 //---------------------------------------------------------------
 
+$clock-size = 160px;
+$hand-width = 10px;
+$hour-hand-inset = 24px;
+$minute-hand-inset = 14px;
+
+$half-clock-size = $clock-size / 2;
+$half-hand-width = $hand-width / 2;
+$negative-half-hand-width = 0 - $half-hand-width;
+$hour-hand-height = $half-clock-size - $hour-hand-inset + $half-hand-width;
+$minute-hand-height = $half-clock-size - $minute-hand-inset + $half-hand-width;
+$hour-hand-transform-offset = $hour-hand-height - $half-hand-width;
+$minute-hand-transform-offset = $minute-hand-height - $half-hand-width;
 
 .time-panel {
   background-color: #fd9564;
@@ -21,9 +33,8 @@
 
 .time-panel__clock {
   position: relative;
-  margin: 0 auto 2.8em;
-  width: 11em;
-  height: 11em;
+  width: $clock-size;
+  height: $clock-size;
   border-radius: 100em;
   background-color: rgba(#000, 0.5);
 }
@@ -33,8 +44,8 @@
   position: absolute;
   left: 50%;
   display: block;
-  margin-left: -0.35em;
-  width: 0.7em;
+  margin-left: $negative-half-hand-width;
+  width: $hand-width;
   border-radius: 5em;
   background-color: #fff;
   text-indent: -9999em;
@@ -42,27 +53,23 @@
 }
 
 .time-panel__clock__hour {
-  top: 2.5em;
-  height: 3.35em;
-  transform-origin: 50% 3em;
+  top: $hour-hand-inset;
+  height: $hour-hand-height;
+  transform-origin: 50% $hour-hand-transform-offset;
 }
 
 .time-panel__clock__minute {
-  transform-origin: 50% 4.5em;
-  height: 4.85em;
-  top: 1em
+  height: $minute-hand-height;
+  top: $minute-hand-inset;
+  transform-origin: 50% $minute-hand-transform-offset;
 }
 
 .time-panel__time {
-  font-size: 2.4rem;
-  text-shadow: 0 1px 2px rgba(#000, 0.1);
-  letter-spacing: 2px;
-  margin-bottom: 0.6em;
+
 }
 
 .time-panel__date {
-  font-size: 1.8rem;
-  text-shadow: 0 1px 2px rgba(#000, 0.1);
+  
 }
 
 

@@ -13,6 +13,7 @@ class root.HelpScoutPanel extends Panel
     Meteor.call 'fetchHelpScout', @panel.mailbox_id, (error, result) ->
       console.log 'helpscout-data', result
       update Panels, that.panel._id,
+        'name': result.item.name
         'open_conversations_count': that._countOpenConversations result.item.folders
   
   _countOpenConversations: (folders) ->
