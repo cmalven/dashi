@@ -1,5 +1,10 @@
 root = exports ? this
+
+Template.herokupanel.helpers
   
+  formatted_app_name: ->
+    return slang.capitalizeWords(@app_name).replace /[_-]/, ' '
+
 Template.herokupanel.rendered = ->
   numWeeks = 8
   weeklyData = []
