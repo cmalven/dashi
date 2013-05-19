@@ -4,10 +4,29 @@
 
 
 //---------------------------------------------------------------
+// Fonts
+//---------------------------------------------------------------
+
+
+basefont() {
+  font-family: "brandon-grotesque", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-style: normal;
+  font-weight: 300;
+}
+
+altfont() {
+  font-family: "brandon-grotesque", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-style: normal;
+  font-weight: 300;
+}
+
+
+//---------------------------------------------------------------
 // Panel
 //---------------------------------------------------------------
 
 .panel {
+  basefont();
   text-align: center;
 }
 
@@ -17,6 +36,7 @@
 //---------------------------------------------------------------
 
 .main-head {
+  basefont();
   font-size: 2.4rem;
   margin-bottom: 0.5em;
   text-transform: uppercase;
@@ -25,6 +45,7 @@
 }
 
 .sub-head {
+  altfont();
   font-size: 1.8rem;
   text-shadow: 0 1px 2px rgba(#000, 0.1);
 }
@@ -40,3 +61,34 @@
   min-width: 160px;
   min-height: 160px;
 }
+
+
+//---------------------------------------------------------------
+// Custom Panel Color
+//---------------------------------------------------------------
+
+
+// Ideas for custom color combinations...
+
+// Ghost...
+// 
+// .panel {
+//   opacity: 0.7;
+//   background-color: rgba(#bbb, 0.03);
+// }
+
+// Monotone...
+
+// $base-panel-color = #7fd37c;
+// $base-panel-hue = hue($base-panel-color);
+// $base-panel-saturation = saturation($base-panel-color);
+// $base-panel-lightness = lightness($base-panel-color);
+// 
+// for num in 1 2 3 4 5 6 7 8 9 10
+// 
+//   $current-hue = $base-panel-hue + (num * 8)
+//   $current-panel-color = hsla($current-hue, $base-panel-saturation, $base-panel-lightness, 1);
+// 
+//   .panel:nth-child({num}) {
+//     background-color: $current-panel-color;
+//   }
