@@ -1,27 +1,8 @@
 root = exports ? this
 
-class root.LineChart
+class root.BarChart extends DashiChart
   
-  constructor: (dataset, el) ->
-    dataset = dataset
-    
-    # Set Defaults
-
-    @w = $(el).width()
-    @h = $(el).height()
-    @minBar = d3.min dataset
-    @maxBar = d3.max dataset
-    @padding = 20
-
-    # Scale
-
-    @scaleY = d3.scale.linear()
-      .domain([0, @maxBar])
-      .range([4, @h])
-    
-    @scaleX = d3.scale.ordinal()
-      .domain(d3.range(dataset.length))
-      .rangeRoundBands([0, @w], 0.2)
+  constructor: (@options) ->
     
     # Setup Axis
 
@@ -38,27 +19,8 @@ class root.LineChart
     #  .orient('left')
     #  .ticks(5)
     #  .tickFormat(formatAsPercentage)
-
-    # Base SVG Element
-
-    @svg = d3.select(el)
-      .append("svg")
-      .attr('width', @w)
-      .attr('height', @h)
-
-    # Bars
-
-    @bars = @svg.selectAll("rect")
-      .data(dataset)
-      .enter()
-      .append("rect")
     
     # Text
-
-    @svg.selectAll("text")
-       .data(dataset)
-       .enter()
-       .append("text")
 
     # Create Axis
 
@@ -73,10 +35,28 @@ class root.LineChart
     #   .call(@yAxis)
 
     # Initial Update
+    super(@options)
 
-    @update()
+  _setup: =>
+    @_setBars()
+    @_setScale()
 
-  update: =>
+  _setBars: =>
+    @bars = @svg.selectAll("rect")
+      .data(@dataset)
+      .enter()
+      .append("rect")
+
+  _setScale: =>
+    @scaleY = d3.scale.linear()
+      .domain([0, @max])
+      .range([4, @h])
+    
+    @scaleX = d3.scale.ordinal()
+      .domain(d3.range(@dataset.length))
+      .rangeRoundBands([0, @w], 0.2)
+
+  _update: =>
     @svg.selectAll("rect")
       .attr("x", (d, i) =>
         return @scaleX(i)

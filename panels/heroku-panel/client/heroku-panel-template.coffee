@@ -11,7 +11,6 @@ Template.herokupanel.rendered = ->
     # Add to array in reverse order (oldest to newest)
     weeklyData[weeklyData.length - 1 - weeksAgo]++
 
-  console.log 'weeklyData', weeklyData
-
-  el = @find '.heroku-panel__release_chart'
-  chart = new LineChart weeklyData, el
+  chart = new BarChart
+    'dataset': weeklyData
+    'el':      @find '.heroku-panel__release_chart'
