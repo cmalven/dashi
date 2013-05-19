@@ -3,36 +3,6 @@ root = exports ? this
 class root.BarChart extends DashiChart
   
   constructor: (@options) ->
-    
-    # Setup Axis
-
-    #formatAsPercentage = d3.format(".1%")
-
-    #@xAxis = d3.svg.axis()
-    #  .scale(@scaleX)
-    #  .orient('bottom')
-    #  .ticks(5)
-    #  .tickFormat(formatAsPercentage)
-
-    #@yAxis = d3.svg.axis()
-    #  .scale(@scaleY)
-    #  .orient('left')
-    #  .ticks(5)
-    #  .tickFormat(formatAsPercentage)
-    
-    # Text
-
-    # Create Axis
-
-    # @svg.append("g")
-    #   .attr("class", "axis")
-    #   .attr("transform", "translate(0," + (@h - @padding) + ")")
-    #   .call(@xAxis)
-    # 
-    # @svg.append("g")
-    #   .attr("class", "axis")
-    #   .attr("transform", "translate(" + @padding + ",0)")
-    #   .call(@yAxis)
 
     # Initial Update
     super(@options)
