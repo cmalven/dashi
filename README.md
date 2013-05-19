@@ -27,6 +27,7 @@ process.env.FORECAST_API_KEY = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXX'
 process.env.CTA_TRAIN_TRACKER_API_KEY = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXX'
 process.env.HELP_SCOUT_API_KEY = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXX'
 process.env.SEMAPHORE_AUTH_TOKEN = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXX'
+process.env.HEROKU_API_KEY = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXX'
 ```
 
 It's up to you to acquire and supply your own API keys for all services. `api_keys.coffee` should not be checked into version control for security reasons. In fact, its add to `.gitignore` by default.
@@ -104,6 +105,7 @@ heroku config:add FORECAST_API_KEY=XXXXXXXXXXXXXXXXXXXXXXXXXXXX
 heroku config:add CTA_TRAIN_TRACKER_API_KEY=XXXXXXXXXXXXXXXXXXXXXXXXXXXX
 heroku config:add HELP_SCOUT_API_KEY=XXXXXXXXXXXXXXXXXXXXXXXXXXXX
 heroku config:add SEMAPHORE_AUTH_TOKEN=XXXXXXXXXXXXXXXXXXXXXXXXXXXX
+heroku config:add HEROKU_API_KEY=XXXXXXXXXXXXXXXXXXXXXXXXXXXX
 ```
 
 ## Problems?

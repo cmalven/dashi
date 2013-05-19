@@ -1,0 +1,46 @@
+/* ==============================================================
+   Heroku Panel
+   ============================================================== */
+
+@import "nib";
+
+//---------------------------------------------------------------
+// Base
+//---------------------------------------------------------------
+
+
+.heroku-panel {
+  background-color: #6a678d;
+  color: #fff;
+}
+
+//
+// Sub-Modules
+//
+
+
+.heroku-panel__release_chart {
+  width: 60%;
+
+  rect {
+    fill: rgba(black, 0.5);
+    border-bottom: 1px solid rgba(black, 0.5);
+  }
+
+  text {
+    text-align: center;
+    fill: rgba(white, 0.5);
+    font-size: 1.0rem;
+  }
+
+  .axis path,
+  .axis line {
+    fill: none;
+    stroke: rgba(black, 0.5);
+    shape-rendering: crispEdges;
+  }
+
+  .axis text {
+    font-size: 1.0rem;
+  }
+}

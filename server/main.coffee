@@ -86,6 +86,11 @@ if not Dashboards.find().count()
     branch_id: '11132'
     grid_size_x: 2
     grid_size_y: 2
+    
+  Meteor.call 'addPanel', 'HerokuPanel',
+    app_name: 'dashi'
+    grid_size_x: 2
+    grid_size_y: 2
 
   Meteor.call 'addMessage',
     dashboard_id: '001'
