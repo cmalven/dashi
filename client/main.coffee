@@ -8,6 +8,12 @@ Deps.autorun ->
   Meteor.subscribe('panels', dashboard_id)
   Meteor.subscribe('messages', dashboard_id)
 
+  # Update panel-being-edited class on body
+  if Session.get('panel_being_edited')
+    $('body').addClass('is-panel-being-edited')
+  else
+    $('body').removeClass('is-panel-being-edited')
+
 # Session Configuration
 Session.set('grid_units_x', 6)
 Session.set('grid_units_y', 4)

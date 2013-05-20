@@ -2,6 +2,7 @@
    Panels
    ============================================================== */
 
+@import "nib";
 
 //---------------------------------------------------------------
 // Base
@@ -12,5 +13,14 @@
 // Holds all every .panel
 
 .panels {
+  transform-origin: 0;
+  transition: 0.5s;
+}
 
+
+/* Panel is being edited
+   ============================================================== */
+
+.is-panel-being-edited .panels {
+  transform: rotateY(20deg) translateX(24em);
 }

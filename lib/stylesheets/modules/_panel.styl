@@ -21,6 +21,7 @@
   transform-style: preserve-3d;
   perspective: 800px;
   box-shadow: 0 1px 15px rgba(black, 0.5);
+  transition: opacity 0.3s;
 }
 
 .panel:before {
@@ -134,4 +135,16 @@
   opacity: 1;
   background-color: #000;
   box-shadow: 0 0 0 4px rgba(#fff, 0.6);
+}
+
+
+/* Panel is being edited
+   ============================================================== */
+
+.is-panel-being-edited .panel {
+  opacity: 0.3;
+}
+
+.is-panel-being-edited .panel.is-being-edited {
+  opacity: 1;
 }
