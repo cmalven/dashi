@@ -12,21 +12,19 @@
 // For editing the data & settings of a panel
 
 .edit-panel {
-  position: absolute;
-  top: 4em;
-  right: 4em;
-  bottom: 4em;
-  left: 4em;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 99999;
   display: block;
   overflow-y: auto;
   margin: 0 auto;
-  max-width: 30em;
-  border-radius: 6px;
+  width: 24em;
   background-color: #333;
   box-shadow: 0 2px 15px rgba(#000, 0.2);
-  opacity: 0;
-  transition: 0.7s;
-  transform: rotateY(180deg);
+  transition: 0.3s;
+  transform: translateX(-24em);
   backface-visibility: hidden;
 }
 
@@ -36,10 +34,11 @@
   letter-spacing: 4px;
   text-align: center;
   margin-bottom: 2em;
+  color: #fff;
 }
 
-.is-being-edited .edit-panel {
-  transform: rotateY(0);
+.edit-panel.is-panel-being-edited {
+  transform: translateX(0);
   opacity: 1;
 }
 

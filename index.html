@@ -31,6 +31,8 @@
 </template>
 
 <template name="dashboard_view">
+  {{> edit_panel}}
+
   <ul id="panels" class="panels" style="{{grid_margin}}">
     {{#each panels}}
       {{> panel}}
@@ -78,7 +80,6 @@
     </div>
     {{> remove_panel_button}}
     {{> edit_panel_button}}
-    {{> edit_panel}}
   </li>
 </template>
 
@@ -95,9 +96,9 @@
 </template>
 
 <template name="edit_panel">
-  <section class="edit-panel">
+  <section class="edit-panel {{is_panel_being_edited_class}}">
     <div class="edit-panel__content">
-      <h1>{{panelName}}</h1>
+      <h1>{{panel_name}}</h1>
 
       <form class="form" action="">
         
