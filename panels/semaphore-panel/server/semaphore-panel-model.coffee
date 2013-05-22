@@ -6,12 +6,7 @@ panelOptionsArray.push
   panel_display_name: 'Semaphore'
   params: {
     required: [
-      {
-        name: 'project_hash_id'
-      }
-      {
-        name: 'branch_id'
-      }
+      
     ]
     optional: [
       {
