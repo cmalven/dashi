@@ -14,8 +14,8 @@ class root.DashiChart
     @max = d3.max @dataset
 
     @_addSvg()
-    @_addText()
     @_setup()
+    @_addText()
     @_update()
 
   _addSvg: =>
