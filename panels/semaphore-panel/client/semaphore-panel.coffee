@@ -15,9 +15,9 @@ class root.SemaphorePanel extends Panel
 
       # Determine the most recently updated project and branch
       newestProject = _.max result, (project) ->
-        return moment(project.updated_at).diff moment()
+        return moment(project.updated_at)?.diff moment()
       newestBranch = _.max newestProject.branches, (branch) ->
-        return moment(branch.finished_at).diff moment()
+        return moment(branch.finished_at)?.diff moment()
 
       update Panels, that.panel._id,
         'project_name': newestProject.name
