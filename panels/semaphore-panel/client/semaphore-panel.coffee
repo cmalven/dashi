@@ -11,7 +11,8 @@ class root.SemaphorePanel extends Panel
   _update: =>
     that = @
     Meteor.call 'fetchSemaphore', @panel.project_hash_id, (error, result) ->
-      console.log 'semaphore-data', result
+      console.log 'semaphore-data', result if result
+      console.log 'semaphore-data-error', error if error
 
       # Determine the most recently updated project and branch
       newestProject = _.max result, (project) ->

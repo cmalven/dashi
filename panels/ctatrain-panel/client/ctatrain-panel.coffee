@@ -12,6 +12,7 @@ class root.CtaTrainPanel extends Panel
     that = @
     Meteor.call 'fetchTrains', @panel.station_id, (error, result) ->
       result = $.xml2json(result)
-      console.log 'ctatrain-data', result
+      console.log 'ctatrain-data', result if result
+      console.log 'ctatrain-data-error', error if error
       update Panels, that.panel._id,
         'stops': result.eta

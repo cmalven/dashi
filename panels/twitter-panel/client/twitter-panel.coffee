@@ -11,7 +11,8 @@ class root.TwitterPanel extends Panel
   _update: =>
     that = @
     Meteor.call 'fetchTweets', @panel.search, (error, result) ->
-      console.log 'twitter-data', result
+      console.log 'twitter-data', result if result
+      console.log 'twitter-data-error', error if error
       latestTweet = result.results[0]
       update Panels, that.panel._id,
         'latest_tweet_created': moment(latestTweet.created_at).fromNow()

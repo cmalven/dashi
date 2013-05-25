@@ -11,6 +11,7 @@ class root.HerokuPanel extends Panel
   _update: =>
     that = @
     Meteor.call 'fetchHeroku', @panel.app_name, (error, result) ->
-      console.log 'heroku-data', result
+      console.log 'heroku-data', result if result
+      console.log 'heroku-data-error', error if error
       update Panels, that.panel._id,
         'releases': result
