@@ -12,7 +12,7 @@ A simple dashboard built using Meteor.js
 curl https://install.meteor.com | /bin/sh
 
 # Install Meteorite
-sudo npm install -g meteorite
+sudo -H npm install -g meteorite
 
 # Start the App (only need sudo the first time)
 sudo mrt
@@ -119,12 +119,20 @@ Meteor is still pretty fresh, so you're likely to run into some issues every onc
 mrt reset
 ```
 
-### Issues with Meteorite
+### Permission woes?
 
+It is *not* required that you run `sudo mrt`. If you do so, your home directory will pick up some root-owned files and you'll struggle to run `mrt` without `sudo` from then on. This isn't good.
+
+To fix the problem, try cleaning up potentially "sudo-ed" files:
+
+```bash
+sudo mrt uninstall
+sudo mrt uninstall --system
+sudo chown -R `whoami` ~/.npm
 ```
-# Try running the problem command again as an admin, e.g.
-sudo mrt
+
+If possible, try not to install Meteorite as root either. If you have permissions problems, make sure you install with `sudo -H npm install -g meteorite`. If you've installed without `-H`, your `~/.npm` directory will be owned by root and you should run the `chown` command above to fix it.
 
 # If that fails, get rid of Meteorite and reinstall
-sudo mrt uninstall --system && sudo npm install -g meteorite && sudo mrt
+sudo mrt uninstall && sudo mrt uninstall --system && sudo -H npm install -g meteorite && mrt
 ```
