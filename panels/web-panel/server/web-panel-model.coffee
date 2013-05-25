@@ -13,7 +13,7 @@ panelOptionsArray.push
     optional: [
       {
         name: 'update_interval'
-        default: 20000
+        default: 20
       }
     ]
   }

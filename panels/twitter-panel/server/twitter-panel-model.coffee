@@ -11,7 +11,7 @@ panelOptionsArray.push
     optional: [
       {
         name: 'update_interval'
-        default: 600000
+        default: 3
       }
       {
         name: 'search'

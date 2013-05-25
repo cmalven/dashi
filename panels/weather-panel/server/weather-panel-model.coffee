@@ -15,7 +15,7 @@ panelOptionsArray.push
       }
       {
         name: 'update_interval'
-        default: 300000
+        default: 20
       }
     ]
   }
