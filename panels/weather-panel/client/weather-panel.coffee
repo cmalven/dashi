@@ -17,6 +17,8 @@ class root.WeatherPanel extends Panel
       Meteor.call 'fetchWeather', location, (error, result) ->
         console.log 'weather-data', result if result
         console.log 'weather-data-error', error if error
+        return if error
+
         update Panels, that.panel._id,
           'current_summary': result.currently.summary
           'current_icon': result.currently.icon

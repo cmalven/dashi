@@ -14,5 +14,7 @@ class root.CtaTrainPanel extends Panel
       result = $.xml2json(result)
       console.log 'ctatrain-data', result if result
       console.log 'ctatrain-data-error', error if error
+      return if error
+      
       update Panels, that.panel._id,
         'stops': result.eta
