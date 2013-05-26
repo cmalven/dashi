@@ -9,6 +9,6 @@ class root.WebPanel extends Panel
     super(@panel)
 
   _update: =>
-    $("##{@panel._id}").find('iframe').src = @panel.url
+    # No update code necessary.
 
 
