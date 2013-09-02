@@ -1,0 +1,18 @@
+<template name="edit_panel">
+  <section class="edit-panel {{is_panel_being_edited_class}}">
+    <div class="edit-panel__content">
+      <h1>{{panel_name}}</h1>
+
+      <form class="form" action="">
+        
+        {{#each params}}
+          <label for="">{{label}}</label>
+          <input type="text" name="{{name}}" id="{{name}}" value="{{value}}">
+        {{/each}}
+      </form>
+
+      <button class="button-square button-square--save">Save</button>
+      <button class="button-square button-square--cancel">Cancel</button>
+    </div>
+  </section>
+</template>

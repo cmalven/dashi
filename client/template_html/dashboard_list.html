@@ -1,0 +1,7 @@
+<template name="dashboard_list">
+  {{loginButtons}}
+
+  {{#each dashboards}}
+    <a href="/dashboard/{{_id}}">View the Dashboard {{_id}}</a>
+  {{/each}}
+</template>

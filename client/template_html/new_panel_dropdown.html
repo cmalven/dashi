@@ -1,0 +1,13 @@
+<template name="new_panel_dropdown">
+  <section class="new-panel-dropdown {{#if is_active}}is-expanded{{/if}}">
+    <form class="form" action="">
+      {{#each params}}
+        <label for="">{{label}}</label>
+        <input type="text" name="{{name}}" id="{{name}}" value="{{default}}">
+      {{/each}}
+    </form>
+
+    <button class="button-square button-square--save">Save</button>
+    <button class="button-square button-square--cancel">Cancel</button>
+  </section>
+</template>

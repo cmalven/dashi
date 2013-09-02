@@ -1,0 +1,10 @@
+<template name="dashboard_view">
+  {{> edit_panel}}
+
+  <ul id="panels" class="panels" style="{{grid_margin}}">
+    {{#each panels}}
+      {{> panel}}
+    {{/each}}
+  </ul>
+  {{> toolbar}}
+</template>
