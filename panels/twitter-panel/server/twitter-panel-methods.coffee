@@ -3,7 +3,15 @@ Meteor.methods
   fetchTweets: (search) ->
     url = 'http://search.twitter.com/search.json?q=' + search
 
-    throw new Meteor.Error(303, 'Twitter API disabled')
+    return {
+      results: [
+        {
+          createdAt: moment().format()
+          from_user_name: 'Dashi'
+          text: 'Twitter panel needs to be updated to API 1.1'
+        }
+      ]
+    }
     # Twitter API disabled until updated for API 1.1
     #result = Meteor.http.get url
     #if result.statusCode is 200
