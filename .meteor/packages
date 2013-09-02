@@ -10,8 +10,6 @@ backbone
 underscore
 jquery
 http
-accounts-ui
-accounts-github
 d3
 standard-app-packages
 momentjs
