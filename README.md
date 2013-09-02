@@ -14,8 +14,11 @@ curl https://install.meteor.com | /bin/sh
 # Install Meteorite
 sudo -H npm install -g meteorite
 
+# Install Smart Packages
+mrt install
+
 # Start the App (only need sudo the first time)
-sudo mrt
+meteor
 ```
 
 ## API Keys
@@ -116,7 +119,7 @@ Meteor is still pretty fresh, so you're likely to run into some issues every onc
 
 ```
 # Reset the database
-mrt reset
+meteor reset
 ```
 
 ### Permission woes?
@@ -134,5 +137,5 @@ sudo chown -R `whoami` ~/.npm
 If possible, try not to install Meteorite as root either. If you have permissions problems, make sure you install with `sudo -H npm install -g meteorite`. If you've installed without `-H`, your `~/.npm` directory will be owned by root and you should run the `chown` command above to fix it.
 
 # If that fails, get rid of Meteorite and reinstall
-sudo mrt uninstall && sudo mrt uninstall --system && sudo -H npm install -g meteorite && mrt
+sudo mrt uninstall && sudo mrt uninstall --system && sudo -H npm install -g meteorite && mrt install
 ```
