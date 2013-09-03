@@ -12,7 +12,7 @@ Template.new_panel_dropdown.helpers
 Template.new_panel_dropdown.events
   'click .button-square--save': (evt, template) ->
     formContent = $(evt.target).closest('.new-panel-dropdown').find('form').serializeObject()
-    Meteor.call 'addPanel', @panelName, formContent, (error, result) =>
+    Meteor.call 'addPanel', @panelName, Session.get('dashboard_id'), formContent, (error, result) =>
       Session.set 'panel_being_created_id', null
 
   'click .button-square--cancel': (evt, template) ->

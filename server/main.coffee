@@ -4,7 +4,7 @@ Meteor.publish 'dashboards', (dashboard_id) ->
   if dashboard_id?
     return Dashboards.find({_id: dashboard_id})
   else
-    return Dashboards.find(_id: '001')
+    return Dashboards.find()
 
 Meteor.publish 'panelOptions', ->
   return PanelOptions.find()
@@ -15,8 +15,6 @@ Meteor.publish 'panels', (dashboard_id) ->
 Meteor.publish 'messages', (dashboard_id) ->
   return Messages.find({dashboard_id: dashboard_id})
 
-
-# Configure the Dashboards and Panels
 
 # Reset the panel options
 PanelOptions.remove({})
@@ -33,11 +31,6 @@ _.each panelOptionsArray, (panelOption) ->
       default: 2
       input_type: 'number'
     }
-    {
-      name: 'dashboard_id'
-      default: '001'
-      editable: false
-    }
   )
   PanelOptions?.insert panelOption
 
@@ -45,59 +38,60 @@ _.each panelOptionsArray, (panelOption) ->
 # Bootstrap the Dashboard if none exist
 
 if not Dashboards.find().count()
-  dashboardsArray = [
-    {
-      _id: '001'
-      title: 'Default'
-    }
-  ]
-  _.each dashboardsArray, (dashboard) ->
-    Dashboards?.insert dashboard
+  dashboard_id = Meteor.call 'addDashboard'
 
   # Bootstrap the Panels
-  Meteor.call 'addPanel', 'TimePanel',
+  Meteor.call 'addPanel', 'TimePanel', dashboard_id,
     grid_size_x: 2
     grid_size_y: 2
     
-  Meteor.call 'addPanel', 'WeatherPanel',
+  Meteor.call 'addPanel', 'WeatherPanel', dashboard_id,
     grid_size_x: 2
     grid_size_y: 4
     
-  Meteor.call 'addPanel', 'CtaTrainPanel',
+  Meteor.call 'addPanel', 'CtaTrainPanel', dashboard_id,
     grid_size_x: 2
     grid_size_y: 2
 
-  Meteor.call 'addPanel', 'TwitterPanel',
+  Meteor.call 'addPanel', 'TwitterPanel', dashboard_id,
     grid_size_x: 2
     grid_size_y: 2
     
-  Meteor.call 'addPanel', 'WebPanel',
+  Meteor.call 'addPanel', 'WebPanel', dashboard_id,
     url: 'http://lunar.meteor.com'
     grid_size_x: 2
     grid_size_y: 2
     
-  Meteor.call 'addPanel', 'HelpScoutPanel',
+  Meteor.call 'addPanel', 'HelpScoutPanel', dashboard_id,
     mailbox_id: '2724'
     grid_size_x: 2
     grid_size_y: 2
     
-  Meteor.call 'addPanel', 'SemaphorePanel',
+  Meteor.call 'addPanel', 'SemaphorePanel', dashboard_id,
     grid_size_x: 2
     grid_size_y: 2
     
-  Meteor.call 'addPanel', 'HerokuPanel',
+  Meteor.call 'addPanel', 'HerokuPanel', dashboard_id,
     app_name: 'dashi'
     grid_size_x: 2
     grid_size_y: 2
 
   Meteor.call 'addMessage',
-    dashboard_id: '001'
     message: 'Welcome to Dashi!'
     time: '2013-04-21T20:38:33-05:00'
-    sender: 'Dashi'
+    sender: 'Dashi',
+    dashboard_id: dashboard_id
 
 
 # Permissions
+
+Dashboards.allow
+  insert: ->
+    return true
+  update: ->
+    return true
+  remove: ->
+    return false
 
 Panels.allow
   insert: ->

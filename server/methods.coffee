@@ -2,7 +2,14 @@
 
 Meteor.methods
 
-  addPanel: (panelOptionName, opts) ->
+  # Dashboards
+  
+  addDashboard: () ->
+    return Dashboards.insert({})
+
+  # Panels
+
+  addPanel: (panelOptionName, dashboard_id, opts) ->
     panelOption = PanelOptions.findOne({panelName: panelOptionName})
 
     # Error if missing any required params
@@ -19,6 +26,7 @@ Meteor.methods
     # Extend the panel defaults with the passed opts
     newPanel = _.extend defaults, opts,
       panelName: panelOptionName,
+      dashboard_id: dashboard_id,
       createdAt: moment().format()
 
     return Panels.insert newPanel
@@ -28,6 +36,9 @@ Meteor.methods
 
   updatePanel: (panelId, opts) ->
     return update Panels, panelId, opts
+
+
+  # Messages
 
   addMessage: (messageData) ->
     return Messages.insert messageData

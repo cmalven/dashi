@@ -35,7 +35,7 @@ DashboardRouter = Backbone.Router.extend
   dashboard: (dashboard_id) ->
     Session.set('dashboard_id', dashboard_id)
 
-Router = new DashboardRouter
+root.Router = new DashboardRouter
 
 Meteor.startup ->
   Backbone.history.start({pushState: true})
