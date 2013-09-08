@@ -21,6 +21,9 @@ class root.PanelManager
     @panels.push panel
     @_addPanelToPackery(panel)
 
+  layout: ->
+    @packery?.layout()
+    
   _initializePackery: () =>
     container = document.querySelector('#panels')
     @packery = new Packery(
