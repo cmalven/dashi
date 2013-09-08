@@ -138,6 +138,62 @@
 }
 
 
+/* Modify Size
+   ============================================================== */
+
+.panel__change-size {
+  position: absolute;
+  top: 0.9em;
+  left: 0.9em;
+  width: 1.4em;
+  border-radius: 10em;
+  background-color: rgba(#fff, 0.3);
+  color: #555;
+  text-align: center;
+  font-size: 20px;
+  line-height: 1.4em;
+  display: none;
+}
+
+.panel__change-size:hover {
+  background-color: rgba(black, 0.6);
+  color: #fff;
+}
+
+.panel:hover .panel__change-size {
+  display: block;
+}
+
+.panel__change-size--minus {
+  
+}
+
+.panel__change-size--plus {
+  
+}
+
+.panel__change-size--x {
+  top: 50%;
+  margin-top: -0.7em;
+}
+
+.panel__change-size--y {
+  left: 50%;
+  margin-left: -0.7em;
+}
+
+
+.panel__change-size--plus.panel__change-size--x {
+  left: auto;
+  right: 0.9em;
+}
+
+.panel__change-size--plus.panel__change-size--y {
+  top: auto;
+  bottom: 0.9em;
+}
+
+
 /* Panel is being edited
    ============================================================== */
 

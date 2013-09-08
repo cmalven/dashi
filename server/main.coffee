@@ -25,11 +25,13 @@ _.each panelOptionsArray, (panelOption) ->
       name: 'grid_size_x'
       default: 2
       input_type: 'number'
+      editable: false
     }
     {
       name: 'grid_size_y'
       default: 2
       input_type: 'number'
+      editable: false
     }
   )
   PanelOptions?.insert panelOption

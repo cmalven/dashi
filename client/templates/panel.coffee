@@ -38,3 +38,20 @@ Template.panel.preserve({
   '.panel[id]': (node) ->
     return node.id
 })
+
+Template.panel.events
+  'click .js-decrease-width': (evt) ->
+    update Panels, this._id,
+      'grid_size_x': parseInt(this.grid_size_x, 10) - 1
+
+  'click .js-increase-width': (evt) ->
+    update Panels, this._id,
+      'grid_size_x': parseInt(this.grid_size_x, 10) + 1
+
+  'click .js-decrease-height': (evt) ->
+    update Panels, this._id,
+      'grid_size_y': parseInt(this.grid_size_y, 10) - 1
+
+  'click .js-increase-height': (evt) ->
+    update Panels, this._id,
+      'grid_size_y': parseInt(this.grid_size_y, 10) + 1
