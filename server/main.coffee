@@ -10,7 +10,7 @@ Meteor.publish 'panelOptions', ->
   return PanelOptions.find()
 
 Meteor.publish 'panels', (dashboard_id) ->
-  return Panels.find({dashboard_id: dashboard_id})
+  return Panels.find({dashboard_id: dashboard_id}, sort: 'panel_order')
 
 Meteor.publish 'messages', (dashboard_id) ->
   return Messages.find({dashboard_id: dashboard_id})

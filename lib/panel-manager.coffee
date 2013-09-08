@@ -34,10 +34,12 @@ class root.PanelManager
 
     @packery.on 'dragItemPositioned', (packeryInstance, draggedItem) =>
       @_updateItemPosition draggedItem.element.attributes['data-panel-id'].value, draggedItem
+      @_saveItemOrder()
 
     @packery.on 'layoutComplete', (packeryInstance, laidOutItems) =>
       _.each laidOutItems, (item) =>
         @_updateItemPosition item.element.attributes['data-panel-id'].value, item
+      @_saveItemOrder()
 
   _addPanelToPackery: (panel) ->
     pckry = @packery
@@ -68,3 +70,11 @@ class root.PanelManager
     gridSize = @["grid_size_#{axis}"]
     placement = Math.round(pos / (gridSize + Session.get('grid_spacing')))
     return placement
+
+  _saveItemOrder: =>
+    itemEls = @packery.getItemElements()
+    for item, i in itemEls
+      panelId = item.getAttribute 'id'
+      update Panels, panelId.replace('-panel', ''),
+        'panel_order': i
+      
