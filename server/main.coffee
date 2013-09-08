@@ -29,7 +29,7 @@ _.each panelOptionsArray, (panelOption) ->
     }
     {
       name: 'grid_size_y'
-      default: 2
+      default: 3
       input_type: 'number'
       editable: false
     }
