@@ -10,6 +10,10 @@ Template.herokupanel.rendered = ->
   weeklyData = []
   for i in [1..numWeeks]
     weeklyData.push 0
+  
+  # Release data might not be available yet
+  return unless @data.releases?
+
   for release in @data.releases
     # Make sure the release is actually a deploy and not a change to the app
     unless release.descr.indexOf("Deploy") is -1
