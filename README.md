@@ -33,7 +33,7 @@ process.env.SEMAPHORE_AUTH_TOKEN = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXX'
 process.env.HEROKU_API_KEY = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXX'
 ```
 
-It's up to you to acquire and supply your own API keys for all services. `api_keys.coffee` should not be checked into version control for security reasons. In fact, its add to `.gitignore` by default.
+It's up to you to acquire and supply your own API keys for all services. `api_keys.coffee` should not be checked into version control for security reasons. In fact, it's added to `.gitignore` by default.
 
 
 ## Finding your way around
