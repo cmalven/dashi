@@ -143,8 +143,7 @@ sudo mrt uninstall && sudo mrt uninstall --system && sudo -H npm install -g mete
 
 ### Or uninstall and reinstall Meteor
 ```
-rm -rf ~/.meteor/
-sudo rm /usr/local/bin/meteor
+rm -rf ~/.meteor/ && sudo rm /usr/local/bin/meteor
 
 curl https://install.meteor.com | /bin/sh
 ```
