@@ -33,16 +33,11 @@ class root.PanelManager
     )
 
     @packery.on 'dragItemPositioned', (packeryInstance, draggedItem) =>
-
-      update Panels, draggedItem.element.attributes['data-panel-id'].value,
-        'pos_x': @_getGridPlacementFromPosition draggedItem.position.x, 'x'
-        'pos_y': @_getGridPlacementFromPosition draggedItem.position.y, 'y'
+      @_updateItemPosition draggedItem.element.attributes['data-panel-id'].value, draggedItem
 
     @packery.on 'layoutComplete', (packeryInstance, laidOutItems) =>
       _.each laidOutItems, (item) =>
-        update Panels, item.element.attributes['data-panel-id'].value,
-        'pos_x': @_getGridPlacementFromPosition item.position.x, 'x'
-        'pos_y': @_getGridPlacementFromPosition item.position.y, 'y'
+        @_updateItemPosition item.element.attributes['data-panel-id'].value, item
 
   _addPanelToPackery: (panel) ->
     pckry = @packery
@@ -62,6 +57,11 @@ class root.PanelManager
   _updateInternalGridUnits: =>
     @grid_size_x = gridUnits.width()
     @grid_size_y = gridUnits.height()
+
+  _updateItemPosition: (panelId, item) =>
+    update Panels, panelId,
+      'pos_x': @_getGridPlacementFromPosition item.position.x, 'x'
+      'pos_y': @_getGridPlacementFromPosition item.position.y, 'y'
 
   _getGridPlacementFromPosition: (pos, axis) =>
     gridNum = Session.get "grid_units_#{axis}"
