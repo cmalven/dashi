@@ -13,7 +13,7 @@ class root.PanelManager
     Panels.find().observeChanges
       removed: (id) =>
         el = $("##{id}-panel")[0]
-        @packery.remove(el)
+        @packery.remove(el) if el?
 
     @_initializePackery()
 
