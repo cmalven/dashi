@@ -11,7 +11,7 @@ Meteor.publish 'panelOptions', ->
 
 Meteor.publish 'panels', (dashboard_id) ->
   if dashboard_id?
-    return Panels.find({dashboard_id: dashboard_id}, sort: 'panel_order')
+    return Panels.find({dashboard_id: dashboard_id})
   else
     return Panels.find()
 

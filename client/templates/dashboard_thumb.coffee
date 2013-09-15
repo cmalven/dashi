@@ -1,7 +1,7 @@
 Template.dashboard_thumb.helpers
 
   panels: ->
-    Panels.find({dashboard_id: @_id})
+    Panels.find({dashboard_id: @_id}, {sort: {panel_order: 1}})
 
   panel_class: ->
     return @css_class + '-panel'
