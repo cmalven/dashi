@@ -12,7 +12,7 @@ Template.dashboard_view.helpers
     
 
 Template.dashboard_view.rendered = ->
-    root.panelManager or= new PanelManager()
+  root.panelManager or= new PanelManager()
 
 Template.dashboard_view.destroyed = ->
-    root.panelManager = null
+  root.panelManager = null
