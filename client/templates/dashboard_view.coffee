@@ -9,10 +9,3 @@ Template.dashboard_view.helpers
   grid_margin: ->
     margin = Session.get 'grid_margin'
     "margin-top: #{margin}px; margin-left: #{margin}px;"
-    
-
-Template.dashboard_view.rendered = ->
-  root.panelManager or= new PanelManager()
-
-Template.dashboard_view.destroyed = ->
-  root.panelManager = null
