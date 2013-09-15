@@ -1,9 +1,9 @@
 <template name="dashboard_list">
-  {{loginButtons}}
-
-  {{#each dashboards}}
-    <a class="dashboard-preview" href="/dashboard/{{_id}}">View Dashboard {{_id}}</a>
-  {{/each}}
-  
-  <a class="dashboard-preview dashboard-preview--new js-new-dashboard" href="#">New Dashboard</a>
+  <section class="dashboard-thumbs">
+    {{#each dashboards}}
+      {{> dashboard_thumb}}
+    {{/each}}
+    
+    <a class="dashboard-thumb dashboard-thumb--new js-new-dashboard" href="#">New Dashboard</a>
+  </section>
 </template>

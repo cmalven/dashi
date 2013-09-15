@@ -1,0 +1,7 @@
+<template name="dashboard_thumb">
+  <a class="dashboard-thumb" href="/dashboard/{{_id}}">
+    {{#each panels}}
+      <div class="dashboard-thumb__panel {{panel_class}}" style="{{panel_width_css}}; {{panel_height_css}}; {{panel_left_css}}; {{panel_top_css}};"></div>
+    {{/each}}
+  </a>
+</template>
