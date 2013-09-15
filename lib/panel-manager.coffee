@@ -32,9 +32,15 @@ class root.PanelManager
         columnWidth: @grid_size_x
         rowHeight: @grid_size_y
         gutter: Session.get 'grid_spacing'
+        isInitLayout: false
       }
     )
 
+    # Bind dragging for each panel 
+    _.each @packery.getItemElements(), (item) =>
+      @_bindDragging item
+
+    # Add dragging and layout events
     @packery.on 'dragItemPositioned', (packeryInstance, draggedItem) =>
       @_updateItemPosition draggedItem.element.attributes['data-panel-id'].value, draggedItem
       @_saveItemOrder()
@@ -44,16 +50,25 @@ class root.PanelManager
         @_updateItemPosition item.element.attributes['data-panel-id'].value, item
       @_saveItemOrder()
 
+    # Perform initial panel layout
+    @packery.layout()
+
   _addPanelToPackery: (panel) ->
-    pckry = @packery
-    item = panel.panel.el
-    pckry.addItems item
-    draggie = new Draggabilly item
-    pckry.bindDraggabillyEvents draggie
+    # Check to see if the panel has already been added
+    el = panel.panel.el
+    return if @packery.getItem(el)?
+
+    # If the panel hasn't been added, add it and bind dragging
+    @packery.addItems el
+    @_bindDragging el
 
     # Fit the panel if it was just created
     timeAgo = moment().diff moment(panel.panel.createdAt)
-    pckry.fit(panel.panel.el) if timeAgo < 2000
+    @packery.fit(el) if timeAgo < 2000
+
+  _bindDragging: (el) =>
+    draggie = new Draggabilly el
+    @packery.bindDraggabillyEvents draggie
 
   _updatePackeryGrid: () ->
     @packery?.options.columnWidth = @grid_size_x
