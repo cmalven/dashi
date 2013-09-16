@@ -13,3 +13,5 @@ http
 d3
 standard-app-packages
 momentjs
+accounts-ui
+accounts-password

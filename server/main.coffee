@@ -1,19 +1,19 @@
 # Publications
 
 Meteor.publish 'dashboards', (dashboard_id) ->
+  query = {user_id: @userId}
   if dashboard_id?
-    return Dashboards.find({_id: dashboard_id})
-  else
-    return Dashboards.find()
+    query._id = dashboard_id
+  return Dashboards.find(query)
 
 Meteor.publish 'panelOptions', ->
   return PanelOptions.find()
 
 Meteor.publish 'panels', (dashboard_id) ->
+  query = {user_id: @userId}
   if dashboard_id?
-    return Panels.find({dashboard_id: dashboard_id})
-  else
-    return Panels.find()
+    query.dashboard_id = dashboard_id
+  return Panels.find(query)
 
 Meteor.publish 'messages', (dashboard_id) ->
   return Messages.find({dashboard_id: dashboard_id})

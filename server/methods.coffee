@@ -5,7 +5,7 @@ Meteor.methods
   # Dashboards
   
   addDashboard: () ->
-    return Dashboards.insert({})
+    return Dashboards.insert({user_id: Meteor.userId()})
 
   # Panels
 
@@ -28,6 +28,7 @@ Meteor.methods
       panelName: panelOptionName,
       dashboard_id: dashboard_id,
       createdAt: moment().format()
+      user_id: Meteor.userId()
 
     return Panels.insert newPanel
 

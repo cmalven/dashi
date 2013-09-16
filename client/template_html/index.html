@@ -1,7 +1,17 @@
 <template name="index">
-  {{#if dashboard}}
-    {{> dashboard_view}}
+  {{loginButtons}}
+
+  {{#if signedin}}
+  
+    {{#if dashboard}}
+      {{> dashboard_view}}
+    {{else}}
+      {{> dashboard_list}}
+    {{/if}}
+
   {{else}}
-    {{> dashboard_list}}
+    
+    {{> create_account}}
+
   {{/if}}
 </template>
