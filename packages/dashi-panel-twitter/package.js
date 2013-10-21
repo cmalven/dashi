@@ -5,9 +5,24 @@ Package.describe({
 Package.on_use(function (api, where) {
   api.use(
     [
-      'dashi-panel'
+      'dashi-panel',
+      'jquery',
+      'stylus',
+      'templating',
+      'minimongo',
+      'mongo-livedata'
     ], 
     'client'
+  );
+
+  api.use(
+    [
+      'coffeescript'
+    ], 
+    [
+      'client',
+      'server'
+    ]
   );
 
   api.add_files(
