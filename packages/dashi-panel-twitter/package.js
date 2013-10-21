@@ -17,7 +17,8 @@ Package.on_use(function (api, where) {
 
   api.use(
     [
-      'coffeescript'
+      'coffeescript',
+      'momentjs'
     ], 
     [
       'client',
