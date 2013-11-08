@@ -1,4 +1,4 @@
-# Meteor Dashboard
+# Dashi
 
 A simple dashboard built using Meteor.js
 
