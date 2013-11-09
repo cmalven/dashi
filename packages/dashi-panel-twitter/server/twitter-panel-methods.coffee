@@ -1,21 +1,17 @@
 Meteor.methods
 
   fetchTweets: (search) ->
-    url = 'http://search.twitter.com/search.json?q=' + search
+    Twit = new TwitMaker
+      consumer_key:         process.env.TWITTER_CONSUMER_KEY
+      consumer_secret:      process.env.TWITTER_CONSUMER_SECRET
+      access_token:         process.env.TWITTER_ACCESS_TOKEN
+      access_token_secret:  process.env.TWITTER_ACCESS_TOKEN_SECRET
 
-    return {
-      results: [
-        {
-          createdAt: moment().format()
-          from_user_name: 'Dashi'
-          text: 'Twitter panel needs to be updated to API 1.1'
-        }
-      ]
-    }
-    # Twitter API disabled until updated for API 1.1
-    #result = Meteor.http.get url
-    #if result.statusCode is 200
-    #  return JSON.parse result.content
-    #else
-    #  errorJson = JSON.parse(result.content)
-    #  throw new Meteor.Error(result.statusCode, #errorJson.error)
+    Future = Npm.require('fibers/future')
+    fut = new Future()
+    Twit.get 'search/tweets', { q: search, count: 1 }, (error, result) ->
+      if result
+        fut['return'](result.statuses) if result
+      else
+        fut['return'](error)
+    return fut.wait()

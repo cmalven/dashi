@@ -15,8 +15,8 @@ class root.TwitterPanel extends Panel
       console.log 'twitter-data-error', error if error
       return if error
 
-      latestTweet = result.results[0]
+      latestTweet = result[0]
       update Panels, that.panel._id,
         'latest_tweet_created': moment(latestTweet.created_at).fromNow()
-        'latest_tweet_user': latestTweet.from_user_name
+        'latest_tweet_user': latestTweet.user.name
         'latest_tweet_text': latestTweet.text
