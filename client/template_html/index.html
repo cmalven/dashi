@@ -1,19 +1,8 @@
 <template name="index">
-  <div class="login-buttons">
-    {{loginButtons}}
-  </div>
 
   {{#if signedin}}
-  
-    {{#if dashboard}}
-      {{> dashboard_view}}
-    {{else}}
-      {{> dashboard_list}}
-    {{/if}}
-
+    {{> dashboard_list}}
   {{else}}
-    
     {{> create_account}}
-
   {{/if}}
 </template>

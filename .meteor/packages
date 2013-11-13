@@ -6,7 +6,6 @@
 preserve-inputs
 coffeescript
 stylus
-backbone
 underscore
 jquery
 http
@@ -26,3 +25,4 @@ dashi-panel-semaphore
 dashi-panel-time
 dashi-panel-web
 twit
+iron-router

@@ -25,20 +25,7 @@ $(window).on 'resize', (evt) ->
   Session.set 'window_width', $(window).width()
   Session.set 'window_height', $(window).height()
 
-# Router
-DashboardRouter = Backbone.Router.extend
-  routes:
-    '': 'index'
-    'dashboard/:dashboard_id': 'dashboard'
-  index: ->
-    Session.set('dashboard_id', null)
-  dashboard: (dashboard_id) ->
-    Session.set('dashboard_id', dashboard_id)
-
-root.Router = new DashboardRouter
-
 Meteor.startup ->
-  Backbone.history.start({pushState: true})
   $(window).trigger 'resize'
 
   # Listen for mouse movement

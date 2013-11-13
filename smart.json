@@ -1,5 +1,6 @@
 {
   "packages": {
-    "twit": {}
+    "twit": {},
+    "iron-router": {}
   }
 }
