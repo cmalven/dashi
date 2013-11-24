@@ -12,7 +12,7 @@ A simple dashboard built using Meteor.js
 curl https://install.meteor.com | /bin/sh
 
 # Install Meteorite
-sudo -H npm install -g meteorite
+npm install -g meteorite
 
 # Install Smart Packages
 mrt install
@@ -64,11 +64,11 @@ sudo mrt uninstall --system
 sudo chown -R `whoami` ~/.npm
 ```
 
-If possible, try not to install Meteorite as root either. If you have permissions problems, make sure you install with `sudo -H npm install -g meteorite`. If you've installed without `-H`, your `~/.npm` directory will be owned by root and you should run the `chown` command above to fix it.
+If possible, try not to install Meteorite as root either. If you have permissions problems, make sure you install with `npm install -g meteorite`. If you've installed without `-H`, your `~/.npm` directory will be owned by root and you should run the `chown` command above to fix it.
 
 ### If that fails, get rid of Meteorite and reinstall
 ```
-sudo mrt uninstall && sudo mrt uninstall --system && sudo -H npm install -g meteorite && mrt install
+sudo mrt uninstall && sudo mrt uninstall --system && npm install -g meteorite && mrt install
 ```
 
 ### Or uninstall and reinstall Meteor
