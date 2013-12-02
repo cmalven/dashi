@@ -1,4 +1,3 @@
-# Configure Router
 Router.configure
   layoutTemplate: 'layout'
 
