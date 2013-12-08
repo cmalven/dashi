@@ -1,3 +1,5 @@
+root = exports ? this
+
 Router.configure
   layoutTemplate: 'layout'
 
@@ -13,9 +15,10 @@ Router.map ->
   
   @route 'dashboard_show',
     path: '/dashboard/:_id'
-    template: 'dashboard_view'
+    template: 'dashboard_show'
     before: ->
       Session.set('dashboard_id', @params._id)
+      root.panelManager or= new PanelManager()
     data: ->
       #lead = Leads.findOne
       #  _id: @params._id
@@ -25,3 +28,5 @@ Router.map ->
       #  documents: Documents.find
       #    _id: {$in: lead.documents}
       #}
+    unload: ->
+      panelManager?._destroyPackery()

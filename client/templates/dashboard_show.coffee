@@ -1,6 +1,6 @@
 root = exports ? this
 
-Template.dashboard_view.helpers
+Template.dashboard_show.helpers
 
   panels: ->
     dashboardId = Session.get('dashboard_id')

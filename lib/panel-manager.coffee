@@ -3,19 +3,7 @@ root = exports ? this
 class root.PanelManager
   constructor: (@options) ->
     @panels = []
-
-    Deps.autorun =>
-      Session.get('window_width')
-      Session.get('window_height')
-      @_updateInternalGridUnits()
-      @_updatePackeryGrid()
-
-    Panels.find().observeChanges
-      removed: (id) =>
-        el = $("##{id}-panel")[0]
-        @packery.remove(el) if el?
-
-    @_initializePackery()
+    @draggies = []
 
   add: (panel) ->
     @panels.push panel
@@ -23,9 +11,29 @@ class root.PanelManager
 
   layout: ->
     @packery?.layout()
-    
+
+  _addPanelToPackery: (panel) ->
+    # Create Packery if this is the first added panel
+    @_initializePackery()
+
+    # Check to see if the panel has already been added
+    el = panel.panel.el
+    return if @packery.getItem(el)?
+
+    # If the panel hasn't been added, add it and bind dragging
+    @packery.addItems el
+    @_bindDragging el
+
+    # Fit the panel if it was just created
+    timeAgo = moment().diff moment(panel.panel.createdAt)
+    @packery.fit(el) if timeAgo < 2000
+
   _initializePackery: () =>
+    return if @packery?
+
+    # Create Packery
     container = document.querySelector('#panels')
+    console.log 'container', container
     @packery = new Packery(
       container,
       {
@@ -35,6 +43,18 @@ class root.PanelManager
         isInitLayout: false
       }
     )
+
+    # Listen for changes that require updates to packery
+    @autorun = Deps.autorun =>
+      Session.get('window_width')
+      Session.get('window_height')
+      @_updateInternalGridUnits()
+      @_updatePackeryGrid()
+
+    @observeRemoved = Panels.find().observeChanges
+      removed: (id) =>
+        el = $("##{id}-panel")[0]
+        @packery.remove(el) if el?
 
     # Bind dragging for each panel 
     _.each @packery.getItemElements(), (item) =>
@@ -53,22 +73,24 @@ class root.PanelManager
     # Perform initial panel layout
     @packery.layout()
 
-  _addPanelToPackery: (panel) ->
-    # Check to see if the panel has already been added
-    el = panel.panel.el
-    return if @packery.getItem(el)?
-
-    # If the panel hasn't been added, add it and bind dragging
-    @packery.addItems el
-    @_bindDragging el
-
-    # Fit the panel if it was just created
-    timeAgo = moment().diff moment(panel.panel.createdAt)
-    @packery.fit(el) if timeAgo < 2000
+  _destroyPackery: =>
+    # Bind dragging for each panel 
+    @_unbindDragging()
+    return unless @packery?
+    @packery.destroy()
+    @packery = null
 
   _bindDragging: (el) =>
     draggie = new Draggabilly el
+    @draggies.push draggie
     @packery.bindDraggabillyEvents draggie
+
+  _unbindDragging: (el) =>
+    _.each @draggies, (draggie) ->
+      draggie.off 'dragStart'
+      draggie.off 'dragMove'
+      draggie.off 'dragEnd'
+    @draggies = []
 
   _updatePackeryGrid: () ->
     @packery?.options.columnWidth = @grid_size_x

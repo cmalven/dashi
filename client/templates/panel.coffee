@@ -28,7 +28,6 @@ Template.panel.helpers
 
 
 Template.panel.rendered = ->
-  root.panelManager or= new PanelManager()
   if panelManager? and not @rendered
     opts = this.data
     opts.el = @find('.panel')
