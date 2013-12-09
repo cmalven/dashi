@@ -1,0 +1,9 @@
+<template name="dashboard_index">
+  <section class="dashboard-thumbs">
+    {{#each dashboards}}
+      {{> dashboard_thumb}}
+    {{/each}}
+    
+    <a class="dashboard-thumb dashboard-thumb--new js-new-dashboard" href="#"><p>New Dashboard</p></a>
+  </section>
+</template>

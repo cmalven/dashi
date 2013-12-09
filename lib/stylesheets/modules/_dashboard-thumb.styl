@@ -13,19 +13,27 @@
 // Represents the dashboard on the main screen
 
 .dashboard-thumb {
-  width: 12em;
-  height: 8em;
   display: inline-block;
-  vertical-align: top;
-  padding: 1em;
-  border: 1px solid rgba(#fff, 0.2);
+  overflow: hidden;
   margin-right: 2em;
   margin-bottom: 2em;
-  overflow: hidden;
+  padding: 1em;
+  width: 12em;
+  height: 8em;
+  border: 1px solid rgba(#fff, 0.2);
+  color: #fff;
+  vertical-align: top;
+  text-decoration: none;
+
+  p {
+    text-align: center;
+    line-height: 5.5em;
+  }
 }
 
 .dashboard-thumb:hover {
   border-color: #fff;
+  text-decoration: underline;
 }
 
 .dashboard-thumb__panel {
