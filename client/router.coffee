@@ -2,6 +2,7 @@ root = exports ? this
 
 Router.configure
   layoutTemplate: 'layout'
+  loadingTemplate: 'loading'
 
 Router.map ->
 
@@ -10,8 +11,12 @@ Router.map ->
     template: 'index'
     before: ->
       Session.set('dashboard_id', null)
+    waitOn: ->
+      return Meteor.subscribe('dashboards', Session.get('dashboard_id'))
     data: ->
-      #
+      {
+        dashboards: Dashboards.find()
+      }
   
   @route 'dashboard_show',
     path: '/dashboard/:_id'
@@ -19,14 +24,13 @@ Router.map ->
     before: ->
       Session.set('dashboard_id', @params._id)
       root.panelManager or= new PanelManager()
+    waitOn: ->
+      return Meteor.subscribe('dashboards', Session.get('dashboard_id'))
     data: ->
-      #lead = Leads.findOne
-      #  _id: @params._id
+      dashboardId = Session.get('dashboard_id')
 
-      #return {
-      #  lead: lead
-      #  documents: Documents.find
-      #    _id: {$in: lead.documents}
-      #}
+      {
+        panels: Panels.find({dashboard_id: dashboardId}, {sort: {panel_order: 1}})
+      }
     unload: ->
       panelManager?._destroyPackery()
