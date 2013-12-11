@@ -1,6 +1,7 @@
 {
   "packages": {
     "twit": {},
-    "iron-router": {}
+    "iron-router": {},
+    "momentjs": {}
   }
 }

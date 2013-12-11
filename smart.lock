@@ -3,7 +3,8 @@
   "dependencies": {
     "basePackages": {
       "twit": {},
-      "iron-router": {}
+      "iron-router": {},
+      "momentjs": {}
     },
     "packages": {
       "twit": {
@@ -15,6 +16,11 @@
         "git": "https://github.com/EventedMind/iron-router.git",
         "tag": "v0.6.1",
         "commit": "4e1ee0581d68bff422a915dacb0bd30eae10fe08"
+      },
+      "momentjs": {
+        "git": "https://github.com/crapthings/meteor-momentjs.git",
+        "tag": "v2.1.0.2",
+        "commit": "59a762e297082eea8b8cae00374c2b7ac6f89529"
       }
     }
   }
