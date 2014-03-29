@@ -1,7 +1,7 @@
 <template name="panel">
   <li id="{{panel_id}}" class="panel {{css_class}}-panel {{is_being_edited_class}}" style="{{width_css}} {{height_css}} {{pos_x_css}} {{pos_y_css}}" data-panel-id="{{_id}}">
     <div class="panel__content-wrapper">
-      {{{dynamicTemplate}}}
+      {{> dynamicTemplate}}
     </div>
     {{> remove_panel_button}}
     {{> edit_panel_button}}

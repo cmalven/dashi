@@ -7,7 +7,7 @@ Template.panel.helpers
 
   dynamicTemplate: ->
     panelName = @panelName.toLowerCase()
-    return Template[panelName](@)
+    return Template[panelName]
 
   width_css: ->
     gutterWidth = Session.get('grid_spacing') * (@grid_size_x - 1)
