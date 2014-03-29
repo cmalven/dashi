@@ -13,8 +13,8 @@ Template.remove_panel_button.events
     else
       Session.set 'show_remove_confirm_button', true
 
-  'mouseout .panel__remove-button': (evt, template) ->
-    Session.set 'show_remove_confirm_button', false
-
-  'click .panel__remove-button__confirm': (evt, template) ->
+  'click .panel__remove-button__confirm__confirm': (evt, template) ->
     Meteor.call 'removePanel', template.data._id
+
+  'click .panel__remove-button__confirm__cancel': (evt, template) ->
+    Session.set 'show_remove_confirm_button', true
