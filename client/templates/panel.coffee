@@ -34,11 +34,6 @@ Template.panel.rendered = ->
     panelManager.add new root[opts.panelName](opts)
     @rendered = true
 
-Template.panel.preserve({
-  '.panel[id]': (node) ->
-    return node.id
-})
-
 Template.panel.events
   'click .js-decrease-width': (evt) ->
     update Panels, this._id,

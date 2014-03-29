@@ -9,7 +9,7 @@ Router.map ->
   @route 'index',
     path: '/'
     template: 'index'
-    before: ->
+    onBeforeAction: ->
       Session.set('dashboard_id', null)
     waitOn: ->
       return Meteor.subscribe('dashboards', Session.get('dashboard_id'))
@@ -21,7 +21,7 @@ Router.map ->
   @route 'dashboard_show',
     path: '/dashboard/:_id'
     template: 'dashboard_show'
-    before: ->
+    onBeforeAction: ->
       Session.set('dashboard_id', @params._id)
       root.panelManager or= new PanelManager()
     waitOn: ->
@@ -32,5 +32,5 @@ Router.map ->
       {
         panels: Panels.find({dashboard_id: dashboardId}, {sort: {panel_order: 1}})
       }
-    unload: ->
+    onStop: ->
       panelManager?._destroyPackery()
