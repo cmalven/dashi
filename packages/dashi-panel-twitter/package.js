@@ -1,5 +1,6 @@
 Package.describe({
-  summary: "Displays the most recent tweet for a search"
+  summary: "Displays the most recent tweet for a search",
+  version: "1.0.0"
 });
 
 Package.on_use(function (api, where) {
@@ -18,7 +19,8 @@ Package.on_use(function (api, where) {
   api.use(
     [
       'coffeescript',
-      'momentjs'
+      'mrt:moment',
+      'mrt:twit@0.2.0'
     ], 
     [
       'client',

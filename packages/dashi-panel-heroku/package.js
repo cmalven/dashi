@@ -1,5 +1,6 @@
 Package.describe({
-  summary: "Displays the releases per week for a Heroku app"
+  summary: "Displays the releases per week for a Heroku app",
+  version: "1.0.0"
 });
 
 Package.on_use(function (api, where) {
@@ -18,7 +19,7 @@ Package.on_use(function (api, where) {
   api.use(
     [
       'coffeescript',
-      'momentjs'
+      'mrt:moment'
     ], 
     [
       'client',
