@@ -2,6 +2,10 @@
   "dependencies": [
     [
       "application-configuration",
+      "1.0.2"
+    ],
+    [
+      "base64",
       "1.0.0"
     ],
     [
@@ -10,7 +14,7 @@
     ],
     [
       "blaze",
-      "1.0.3"
+      "2.0.0"
     ],
     [
       "callback-hook",
@@ -22,23 +26,27 @@
     ],
     [
       "coffeescript",
-      "1.0.2"
+      "1.0.3"
     ],
     [
       "dashi-panel",
       "1.0.0"
     ],
     [
+      "ddp",
+      "1.0.8"
+    ],
+    [
       "deps",
-      "1.0.1"
+      "1.0.3"
     ],
     [
       "ejson",
-      "1.0.0"
+      "1.0.2"
     ],
     [
       "follower-livedata",
-      "1.0.0"
+      "1.0.1"
     ],
     [
       "geojson-utils",
@@ -46,7 +54,7 @@
     ],
     [
       "htmljs",
-      "1.0.0"
+      "1.0.1"
     ],
     [
       "id-map",
@@ -61,24 +69,24 @@
       "1.0.0"
     ],
     [
-      "livedata",
-      "1.0.7"
-    ],
-    [
       "logging",
-      "1.0.2"
+      "1.0.3"
     ],
     [
       "meteor",
-      "1.0.2"
+      "1.1.0"
     ],
     [
       "minimongo",
-      "1.0.1"
+      "1.0.3"
+    ],
+    [
+      "mongo",
+      "1.0.5"
     ],
     [
       "mongo-livedata",
-      "1.0.3"
+      "1.0.4"
     ],
     [
       "mrt:moment",
@@ -90,7 +98,7 @@
     ],
     [
       "observe-sequence",
-      "1.0.1"
+      "1.0.2"
     ],
     [
       "ordered-dict",
@@ -101,20 +109,24 @@
       "1.0.0"
     ],
     [
+      "reactive-var",
+      "1.0.1"
+    ],
+    [
       "retry",
       "1.0.0"
     ],
     [
       "stylus",
-      "1.0.3"
-    ],
-    [
-      "templating",
       "1.0.4"
     ],
     [
-      "ui",
-      "1.0.0"
+      "templating",
+      "1.0.6"
+    ],
+    [
+      "tracker",
+      "1.0.2"
     ],
     [
       "underscore",
@@ -122,6 +134,6 @@
     ]
   ],
   "pluginDependencies": [],
-  "toolVersion": "meteor-tool@1.0.26",
+  "toolVersion": "meteor-tool@1.0.30",
   "format": "1.0"
 }
