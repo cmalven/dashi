@@ -13,9 +13,6 @@ Template.edit_panel.helpers
   is_panel_being_edited_class: ->
     return 'is-panel-being-edited' if Session.get 'panel_being_edited'
 
-Template.edit_panel.preserve ['.edit-panel']
-
-
 Template.edit_panel.events
   'click .button-square--save': (evt, template) ->
     formContent = $(evt.target).prev('form').serializeObject()

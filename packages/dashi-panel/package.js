@@ -1,5 +1,6 @@
 Package.describe({
-  summary: "Base Dashi Panel"
+  summary: "Base Dashi Panel",
+  version: "1.0.0"
 });
 
 Package.on_use(function (api, where) {

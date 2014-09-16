@@ -7,7 +7,7 @@ Template.panel.helpers
 
   dynamicTemplate: ->
     panelName = @panelName.toLowerCase()
-    return Template[panelName](@)
+    return Template[panelName]
 
   width_css: ->
     gutterWidth = Session.get('grid_spacing') * (@grid_size_x - 1)
@@ -33,11 +33,6 @@ Template.panel.rendered = ->
     opts.el = @find('.panel')
     panelManager.add new root[opts.panelName](opts)
     @rendered = true
-
-Template.panel.preserve({
-  '.panel[id]': (node) ->
-    return node.id
-})
 
 Template.panel.events
   'click .js-decrease-width': (evt) ->

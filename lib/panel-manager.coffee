@@ -3,7 +3,7 @@ root = exports ? this
 class root.PanelManager
   constructor: (@options) ->
     @panels = []
-    @draggies = []
+    @draggables = []
 
   add: (panel) ->
     @panels.push panel
@@ -81,16 +81,21 @@ class root.PanelManager
     @packery = null
 
   _bindDragging: (el) =>
-    draggie = new Draggabilly el
-    @draggies.push draggie
-    @packery.bindDraggabillyEvents draggie
+    # Dragging
+    $item = $(el).draggable().resizable({grid: 50})
+    @draggables.push $item
+    @packery.bindUIDraggableEvents $item
+
+    # Resizing
+    $item.on 'resize', (evt, ui) ->
+      console.log 'Resizing!'
 
   _unbindDragging: (el) =>
-    _.each @draggies, (draggie) ->
-      draggie.off 'dragStart'
-      draggie.off 'dragMove'
-      draggie.off 'dragEnd'
-    @draggies = []
+    _.each @draggables, (draggable) ->
+      draggable.off 'dragStart'
+      draggable.off 'dragMove'
+      draggable.off 'dragEnd'
+    @draggables = []
 
   _updatePackeryGrid: () ->
     @packery?.options.columnWidth = @grid_size_x

@@ -3,17 +3,17 @@
 # 'meteor add' and 'meteor remove' will edit this file for you,
 # but you can also edit it by hand.
 
-preserve-inputs
+accounts-password
+accounts-ui
 coffeescript
+d3
+http
+iron:router
+jquery
+mrt:moment
+standard-app-packages
 stylus
 underscore
-jquery
-http
-d3
-standard-app-packages
-momentjs
-accounts-ui
-accounts-password
 dashi-panel
 dashi-panel-twitter
 dashi-panel-weather
@@ -24,5 +24,3 @@ dashi-panel-message
 dashi-panel-semaphore
 dashi-panel-time
 dashi-panel-web
-twit
-iron-router

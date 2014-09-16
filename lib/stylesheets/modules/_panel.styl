@@ -87,18 +87,30 @@
   position: absolute;
   top: 0;
   right: 0;
-  width: 15em;
-  background-color: #f3332b;
-  line-height: 3em;
-  cursor: pointer;
   display: none;
 }
 
 .panel__remove-button__confirm.is-visible {
-  transform: translate3d(0, 0, 0);
   display: block;
+  transform: translate3d(0, 0, 0);
+  
 }
 
+.panel__remove-button__confirm__confirm,
+.panel__remove-button__confirm__cancel {
+  display: inline-block;
+  width: 15em;
+  line-height: 3em;
+  cursor: pointer;
+}
+
+.panel__remove-button__confirm__confirm {
+  background-color: #f3332b;
+}
+
+.panel__remove-button__confirm__cancel {
+  background-color: #333;
+}
 
 /* Edit Button
    ============================================================== */
