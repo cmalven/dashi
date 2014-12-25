@@ -33,7 +33,6 @@ class root.PanelManager
 
     # Create Packery
     container = document.querySelector('#panels')
-    console.log 'container', container
     @packery = new Packery(
       container,
       {
