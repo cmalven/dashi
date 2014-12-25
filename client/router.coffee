@@ -11,6 +11,7 @@ Router.map ->
     template: 'index'
     onBeforeAction: ->
       Session.set('dashboard_id', null)
+      @next()
     waitOn: ->
       return Meteor.subscribe('dashboards', Session.get('dashboard_id'))
     data: ->
@@ -24,6 +25,7 @@ Router.map ->
     onBeforeAction: ->
       Session.set('dashboard_id', @params._id)
       root.panelManager or= new PanelManager()
+      @next()
     waitOn: ->
       return Meteor.subscribe('dashboards', Session.get('dashboard_id'))
     data: ->
