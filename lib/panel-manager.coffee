@@ -42,7 +42,7 @@ class root.PanelManager
     )
 
     # Listen for changes that require updates to packery
-    @autorun = Deps.autorun =>
+    @autorun = Tracker.autorun =>
       Session.get('window_width')
       Session.get('window_height')
       @_updateInternalGridUnits()
@@ -76,6 +76,10 @@ class root.PanelManager
     return unless @packery?
     @packery.destroy()
     @packery = null
+
+    # Remove autorun/observers
+    @observeRemoved.stop()
+    @autorun.stop()
 
   _bindDragging: (el) =>
     # Dragging
