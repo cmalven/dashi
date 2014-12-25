@@ -2,11 +2,9 @@ root = exports ? this
 
 class root.PanelManager
   constructor: (@options) ->
-    @panels = []
     @draggables = []
 
   add: (panel) ->
-    @panels.push panel
     @_addPanelToPackery(panel)
 
   layout: ->
