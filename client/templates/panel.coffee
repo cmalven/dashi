@@ -28,11 +28,10 @@ Template.panel.helpers
 
 
 Template.panel.rendered = ->
-  if panelManager? and not @rendered
+  if panelManager?
     opts = this.data
     opts.el = @find('.panel')
     panelManager.add new root[opts.panelName](opts)
-    @rendered = true
 
 Template.panel.events
   'click .js-decrease-width': (evt) ->
