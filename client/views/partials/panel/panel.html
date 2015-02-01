@@ -5,11 +5,14 @@
     </div>
     {{> remove_panel_button}}
     {{> edit_panel_button}}
-
-    <div class="panel__change-size panel__change-size--minus panel__change-size--x js-decrease-width">-</div>
-    <div class="panel__change-size panel__change-size--plus panel__change-size--x js-increase-width">+</div>
-
-    <div class="panel__change-size panel__change-size--minus panel__change-size--y js-decrease-height">-</div>
-    <div class="panel__change-size panel__change-size--plus panel__change-size--y js-increase-height">+</div>
+    
+    <div class="ui-resizable-handle ui-resizable-nw" id="nwgrip"></div> 
+    <div class="ui-resizable-handle ui-resizable-ne" id="negrip"></div> 
+    <div class="ui-resizable-handle ui-resizable-sw" id="swgrip"></div> 
+    <div class="ui-resizable-handle ui-resizable-se" id="segrip"></div> 
+    <div class="ui-resizable-handle ui-resizable-n" id="ngrip"></div> 
+    <div class="ui-resizable-handle ui-resizable-s" id="sgrip"></div> 
+    <div class="ui-resizable-handle ui-resizable-e" id="egrip"></div> 
+    <div class="ui-resizable-handle ui-resizable-w" id="wgrip"></div> 
   </li>
 </template>

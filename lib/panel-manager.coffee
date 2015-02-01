@@ -46,7 +46,7 @@ class root.PanelManager
       Session.get('window_width')
       Session.get('window_height')
       @_updateInternalGridUnits()
-      @_updatePackeryGrid()
+      @_updateGrids()
 
     @observeRemoved = Panels.find().observeChanges
       removed: (id) =>
@@ -59,16 +59,13 @@ class root.PanelManager
 
     # Add dragging and layout events
     @packery.on 'dragItemPositioned', (packeryInstance, draggedItem) =>
-      @_updateItemPosition draggedItem.element.attributes['data-panel-id'].value, draggedItem
-      @_saveItemOrder()
-
-    @packery.on 'layoutComplete', (packeryInstance, laidOutItems) =>
-      _.each laidOutItems, (item) =>
-        @_updateItemPosition item.element.attributes['data-panel-id'].value, item
+      _.each packeryInstance.getItemElements(), (el) =>
+        item = packeryInstance.getItem(el)
+        @_updateItemPosition item.element.attributes['data-panel-id'].value, item.position
       @_saveItemOrder()
 
     # Perform initial panel layout
-    @packery.layout()
+    @layout()
 
   _destroyPackery: =>
     # Bind dragging for each panel 
@@ -83,13 +80,32 @@ class root.PanelManager
 
   _bindDragging: (el) =>
     # Dragging
-    $item = $(el).draggable().resizable({grid: 50})
+    $item = $(el)
+      .draggable()
+      .resizable
+        grid: [
+          @grid_size_x + Session.get('grid_spacing'),
+          @grid_size_y + Session.get('grid_spacing')
+        ]
+        handles:
+          'nw': '#nwgrip', 
+          'ne': '#negrip', 
+          'sw': '#swgrip', 
+          'se': '#segrip', 
+          'n': '#ngrip', 
+          'e': '#egrip', 
+          's': '#sgrip', 
+          'w': '#wgrip' 
     @draggables.push $item
     @packery.bindUIDraggableEvents $item
 
     # Resizing
-    $item.on 'resize', (evt, ui) ->
-      console.log 'Resizing!'
+    $item.on 'resizestop', @_stoppedResizing
+
+  _stoppedResizing: (evt, ui) =>
+    panelId = ui.element.data('panel-id')
+    console.log 'ui.position', ui.position
+    @_updateItemSizeAndPosition(panelId, ui.size, { x: ui.position.left, y: ui.position.top})
 
   _unbindDragging: (el) =>
     _.each @draggables, (draggable) ->
@@ -98,18 +114,37 @@ class root.PanelManager
       draggable.off 'dragEnd'
     @draggables = []
 
-  _updatePackeryGrid: () ->
+  _updateGrids: () ->
+    # Update Packery Grid
     @packery?.options.columnWidth = @grid_size_x
     @packery?.options.rowHeight = @grid_size_y
+
+    # Update Draggable Item Grids
+    packeryItems = @packery?.getItemElements()
+    for item in packeryItems
+      return unless $(item).data('draggable')
+      $(item).draggable('option', 'grid', [ 
+        @grid_size_x + Session.get('grid_spacing'),
+        @grid_size_y + Session.get('grid_spacing')
+      ])
 
   _updateInternalGridUnits: =>
     @grid_size_x = gridUnits.width()
     @grid_size_y = gridUnits.height()
 
-  _updateItemPosition: (panelId, item) =>
+  _updateItemPosition: (panelId, positionObject) =>
     update Panels, panelId,
-      'pos_x': @_getGridPlacementFromPosition item.position.x, 'x'
-      'pos_y': @_getGridPlacementFromPosition item.position.y, 'y'
+      'pos_x': @_getGridPlacementFromPosition positionObject.x, 'x'
+      'pos_y': @_getGridPlacementFromPosition positionObject.y, 'y'
+
+  _updateItemSizeAndPosition: (panelId, size, positionObject) =>
+    newUnitWidth = gridUnits.getUnitsForWidth(size.width)
+    newUnitHeight = gridUnits.getUnitsForHeight(size.height)
+    update Panels, panelId,
+      'grid_size_x': newUnitWidth
+      'grid_size_y': newUnitHeight
+      'pos_x': @_getGridPlacementFromPosition positionObject.x, 'x'
+      'pos_y': @_getGridPlacementFromPosition positionObject.y, 'y'
 
   _getGridPlacementFromPosition: (pos, axis) =>
     gridNum = Session.get "grid_units_#{axis}"
