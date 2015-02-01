@@ -104,7 +104,6 @@ class root.PanelManager
 
   _stoppedResizing: (evt, ui) =>
     panelId = ui.element.data('panel-id')
-    console.log 'ui.position', ui.position
     @_updateItemSizeAndPosition(panelId, ui.size, { x: ui.position.left, y: ui.position.top})
 
   _unbindDragging: (el) =>
