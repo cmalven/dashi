@@ -17,6 +17,20 @@ meteor
 
 ### API Keys
 
+Each Dashi _Board_ consists of any number of _Panels_ which are simple, independent Meteor packages that can visualize anything from local weather to Heroku deployments. The following panels are included with Dashi, and creating your own panels is super simple, just use one of the existing panels as a code reference...
+
+- **CTA Train:** Shows upcoming arrivals for any El station in the [CTA](http://www.transitchicago.com). 
+- **HelpScout:** Show the number of outstanding tickets for any mailbox in [HelpScout](http://www.helpscout.net) 
+- **Heroku:** Show the number of deployments per week for any [Heroku](https://www.heroku.com) app.
+- **Message:** A simple way to post messages to the dashboard (e.g. "Cookies in the break room!")
+- **Semaphore:** Show the status of the latest [Semaphore](https://semaphoreapp.com) build.
+- **Time:** An analog display of the current time.
+- **Twitter:** View the latest [Twitter](https://twitter.com) post matching a search query.
+- **Weather:** Displays the local weather.
+- **Web:** Embeds an iframe view of any web site. Great for including panels from [other dashboard systems](http://panic.com/statusboard/).
+
+### API Keys
+
 Many dashboard panels rely on API keys to function. When working with the app locally, the easiest way to handle this is by adding a file called `api_keys.coffee` to `/server`, with contents similar to the following:
 
 ```
